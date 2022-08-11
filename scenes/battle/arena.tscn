@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://actors/mario_battle/mario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/kuribo_battle/kuribo.tscn" type="PackedScene" id=2]
+
+[node name="BattleArena" type="Node2D"]
+
+[node name="Mario" parent="." instance=ExtResource( 1 )]
+position = Vector2( 277, 592 )
+scale = Vector2( 3, 3 )
+
+[node name="Kuribo" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1176, 559 )
+scale = Vector2( 3, 3 )
