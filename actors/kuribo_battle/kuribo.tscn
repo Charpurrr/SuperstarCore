@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://actors/kuribo_battle/idle.png" type="Texture" id=1]
 [ext_resource path="res://actors/kuribo_battle/battle_kuribo.gd" type="Script" id=2]
@@ -461,13 +461,17 @@ animations = [ {
 "speed": 13.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=115]
+extents = Vector2( 50, 1 )
+
 [node name="Kuribo" type="Node2D"]
 
 [node name="Actor" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actor"]
-position = Vector2( 0, -12.5 )
+unique_name_in_owner = true
+position = Vector2( 0, -13 )
 z_index = 1
 z_as_relative = false
 shape = SubResource( 1 )
@@ -477,12 +481,18 @@ unique_name_in_owner = true
 z_as_relative = false
 frames = SubResource( 114 )
 animation = "idle"
-frame = 41
+frame = 73
 playing = true
-offset = Vector2( 0, -12.5 )
+offset = Vector2( 0, -12 )
+
+[node name="JumpAttackDistance" type="CollisionShape2D" parent="Actor"]
+unique_name_in_owner = true
+position = Vector2( -60, -2 )
+shape = SubResource( 115 )
 
 [node name="HP" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 margin_left = -19.0
 margin_top = -45.0
 margin_right = 21.0
