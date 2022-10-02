@@ -11,12 +11,11 @@ config_version=4
 [application]
 
 config/name="Superstar Core"
-run/main_scene="res://scenes/battle/arena.tscn"
+run/main_scene="res://actors/kuribo_battle/scenes/arena_kuribo_1.tscn"
 
 [autoload]
 
 GlobalSingletonShared="*res://utility/global_singleton_shared.tscn"
-GlobalSingletonArena="*res://utility/global_singleton_arena.tscn"
 AudioSingleton="*res://utility/audio_singleton.tscn"
 
 [debug]
@@ -27,13 +26,13 @@ settings/fps/force_fps=60
 
 window/size/width=1536
 window/size/height=864
-window/size/fullscreen=true
-window/size/test_width=100
-window/size/test_height=100
+window/size/test_width=1200
+window/size/test_height=300
 
 [global]
 
 main=false
+fps=false
 
 [importer_defaults]
 

@@ -1,28 +1,29 @@
 extends ResourcePreloader
 
-onready var mario_actor = $"%Actor"
+onready var mario : KinematicBody2D = get_parent()
+
 
 func _process(delta):
-	match mario_actor.jump_progression:
-		1:
-			mario_actor.checking = true
-			yield(get_tree().create_timer(0.33), "timeout")
-			mario_actor.checking = false
-			if mario_actor.successful_jump == false:
-				mario_actor.state = "jump_fail"
+	match mario.jump_stage:
 		2:
-			mario_actor.checking_dx = true
-			yield(get_tree().create_timer(0.33), "timeout")
-			mario_actor.checking_dx = false
-			if mario_actor.successful_jump_dx == false:
-				mario_actor.state = "jump_fail"
+			mario.checking = true
+			yield(get_tree().create_timer(0.33), "timeout") # 0.33 because that's the length of the animation in the AP
+			mario.checking = false
+			if mario.successful_jump == false:
+				mario.anime_state = "jump_fail"
+		3:
+			mario.checking_dx = true
+			yield(get_tree().create_timer(0.33), "timeout") # 0.33 because that's the length of the animation in the AP
+			mario.checking_dx = false
+			if mario.successful_jump_dx == false:
+				mario.anime_state = "jump"
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
-		"jump_air":
-			mario_actor.jump_progression = 2
-			mario_actor.checking_dx = true
-		"jump_excellent":
-			mario_actor.jump_progression = 3
-			mario_actor.checking_dx = false
+		"jump_successful":
+			mario.jump_stage = 4
+			mario.checking_dx = true
+		"jump_successful_dx":
+			mario.jump_stage = 5
+			mario.checking_dx = false

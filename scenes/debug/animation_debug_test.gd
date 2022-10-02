@@ -1,15 +1,15 @@
 extends OptionButton
 
-onready var mario = $"../Mario/Actor"
+onready var mario = $"../Mario"
 
 func _process(delta):
 	if get_selected_id() == 0:
-		mario.state = "idle"
+		mario.anime_state = "idle"
 	if get_selected_id() == 1:
-		mario.state = "idle_tired"
+		mario.anime_state = "idle_tired"
 	if get_selected_id() == 2:
-		mario.state = "thinking"
+		mario.anime_state = "thinking"
 	if get_selected_id() == 3:
-		mario.state = "thinking_tired"
+		mario.anime_state = "thinking_tired"
 	if get_selected_id() == 4:
-		mario.state = "jump"
+		mario.anime_state = "jump"
