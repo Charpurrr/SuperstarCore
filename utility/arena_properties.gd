@@ -25,15 +25,19 @@ func _ready():
 			mario.visible = true
 			luigi.visible = false
 			mario.position = Vector2(150, 175)
+			mario.origin_point = mario.position
 		2:
 			luigi.visible = true
 			mario.visible = false
 			luigi.position = Vector2(150, 175)
+			# Add origin point here
 		3:
 			luigi.visible = true
 			mario.visible = true
 			mario.position = Vector2(150, 100)
+			mario.origin_point = mario.position
 			luigi.position = Vector2(150, 200)
+			# Add origin point here
 
 
 func set_enemy_count():

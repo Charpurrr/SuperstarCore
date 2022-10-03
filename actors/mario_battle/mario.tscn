@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=2]
+[gd_scene load_steps=249 format=2]
 
 [ext_resource path="res://actors/mario_battle/battle_mario.gd" type="Script" id=1]
 [ext_resource path="res://actors/mario_battle/idle.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://actors/mario_battle/run_right.png" type="Texture" id=17]
 [ext_resource path="res://actors/mario_battle/jump_fall.png" type="Texture" id=18]
 [ext_resource path="res://actors/mario_battle/jump_fail_check.gd" type="Script" id=19]
+[ext_resource path="res://actors/mario_battle/run_left.png" type="Texture" id=20]
 
 [sub_resource type="CapsuleShape2D" id=50]
 
@@ -562,6 +563,54 @@ region = Rect2( 0, 0, 100, 100 )
 atlas = ExtResource( 14 )
 region = Rect2( 102, 0, 100, 100 )
 
+[sub_resource type="AtlasTexture" id=404]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=405]
+atlas = ExtResource( 20 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=406]
+atlas = ExtResource( 20 )
+region = Rect2( 204, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=407]
+atlas = ExtResource( 20 )
+region = Rect2( 306, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=408]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=409]
+atlas = ExtResource( 20 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=410]
+atlas = ExtResource( 20 )
+region = Rect2( 204, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=411]
+atlas = ExtResource( 20 )
+region = Rect2( 306, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=412]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=413]
+atlas = ExtResource( 20 )
+region = Rect2( 102, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=414]
+atlas = ExtResource( 20 )
+region = Rect2( 204, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=415]
+atlas = ExtResource( 20 )
+region = Rect2( 306, 204, 100, 100 )
+
 [sub_resource type="AtlasTexture" id=334]
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 100, 100 )
@@ -904,6 +953,11 @@ animations = [ {
 "name": "jump_windup",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ), SubResource( 414 ), SubResource( 415 ) ],
+"loop": true,
+"name": "run_left",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 334 ), SubResource( 335 ), SubResource( 336 ), SubResource( 337 ), SubResource( 338 ), SubResource( 339 ), SubResource( 340 ), SubResource( 341 ), SubResource( 342 ), SubResource( 343 ), SubResource( 344 ), SubResource( 345 ) ],
 "loop": true,
 "name": "run_right",
@@ -1080,10 +1134,9 @@ shape = SubResource( 50 )
 
 [node name="Puppet" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
-rotation = -6.28319
 z_as_relative = false
 frames = SubResource( 49 )
-animation = "jump_check"
+animation = "run_left"
 offset = Vector2( 0, -50 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Puppet"]
