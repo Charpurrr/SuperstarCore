@@ -1121,7 +1121,6 @@ shape = SubResource( 50 )
 
 [node name="Puppet" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
-z_as_relative = false
 frames = SubResource( 49 )
 animation = "run_left"
 offset = Vector2( 0, -50 )

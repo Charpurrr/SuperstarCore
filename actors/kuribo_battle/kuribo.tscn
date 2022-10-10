@@ -485,7 +485,6 @@ shape = SubResource( 1 )
 [node name="Puppet" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
 position = Vector2( 0, -13 )
-z_as_relative = false
 frames = SubResource( 114 )
 animation = "idle"
 offset = Vector2( 0, -12 )
