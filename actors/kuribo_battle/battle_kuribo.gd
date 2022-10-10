@@ -15,5 +15,5 @@ func _ready():
 	kuribo_puppet.playing = true
 
 
-func _process(delta):
+func _process(_delta):
 	kuribo_puppet.animation = anime_state

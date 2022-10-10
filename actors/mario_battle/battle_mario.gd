@@ -5,8 +5,11 @@ onready var mario_puppet : AnimatedSprite = $"%Puppet"
 onready var mario_anime : AnimationPlayer = $"%AnimationPlayer"
 onready var enemy_category : Node2D = $"../../Enemies"
 
+# command block vars
+onready var selection_block : Node = $"%Block"
+var command_select : int = 1 # [1: jump] [2: hammer] [3: bros] [4: run] [5: item]
+
 # jump attack vars
-var jumping_windup : bool = false
 var jumping : bool = false
 var checking : bool = false # If true, can perform a jump action to get a great or excellent rating
 var successful_jump : bool = false # If true, performed jump action to get a great or excellent rating
@@ -15,17 +18,17 @@ var successful_jump_dx : bool = false # If true, performed a jump action to get 
 var jump_attack_start_pos : Vector2
 var jump_attack_end_pos : Vector2
 var jump_attack_fail_pos : Vector2
-var jump_stage : int
+var jump_stage : int = 0
 var jump_progression : float = 0.00
 var jump_fail_progression : float = 0.00
 const JUMP_HEIGHT : int = 100
-const JUMP_FAIL_HEIGHT : int = 10
+const JUMP_FAIL_HEIGHT : int = 20
 
-# command block vars
-onready var selection_block : Node = $"%Block"
-var command_select : int = 1 # [1: jump] [2: hammer] [3: bros] [4: run] [5: item]
+# shared attack vars
+const RUNBACK_TIME : float = 0.7 # The time it takes to run toward, and back from an enemy
 
 # misc vars
+var attacking : bool = false
 var origin_point : Vector2
 var anime_state : String = "thinking"
 
@@ -35,8 +38,7 @@ func _ready():
 	mario_puppet.playing = true
 
 
-func _process(delta):
-	print(jump_progression)
+func _process(_delta):
 	jump_action_extended()
 	command_block_handler()
 	mario_puppet.animation = anime_state
@@ -64,7 +66,7 @@ func command_block_handler():
 			5: item_action()
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_pressed("right") && anime_state == "thinking":
 		command_select += 1
 		command_select = wrapi(command_select, 1, 6)
@@ -80,49 +82,49 @@ func jump_action():
 			anime_state = "idle"
 			jump_stage = 1
 
-		1: # run and jump
+		1: # run + jump call
 			anime_state = "run_right"
 			for enemy in enemy_category.get_children():
 				if enemy.index == GlobalSingletonShared.final_selected_enemy:
 					jump_attack_start_pos = enemy.get_node("JumpAttackStart").global_position
 					jump_attack_end_pos = enemy.get_node("JumpAttackEnd").global_position
 					jump_attack_fail_pos = enemy.get_node("JumpAttackFail").global_position
-					var attack_tween = create_tween()
-					attack_tween.tween_property(self, "position", 
-					# Change the value to the correct duration after study
-					jump_attack_start_pos, 0.7).from_current()
-					attack_tween.connect("finished", self, "jump_start_windup")
 
-		2: # reference $JumpFailCheck
+					if attacking == false:
+						attacking = true
+						var attack_tween = create_tween()
+						attack_tween.tween_property(self, "position", 
+						jump_attack_start_pos, RUNBACK_TIME).from(origin_point)
+						attack_tween.connect("finished", self, "jump_start_windup", [], CONNECT_ONESHOT)
+
+		2: # jump
 			pass
 
-		3: # check (great)
+		3:
 			pass
-#			if Input.is_action_just_pressed("A") && checking:
-#				successful_jump = true
-#				anime_state = "jump_air"
-#				mario_anime.queue("jump_air")
 
-		4: # check (excellent)
+		4: # 
+			pass
+
+		5: # 
 			pass
 #			if Input.is_action_just_pressed("A") && checking_dx:
 #				anime_state = "jump_excellent"
 #				mario_anime.play("jump_excellent")
 
-		5: # excellent recover
+		6: # recover
 			pass
 
 func jump_start_windup():
-	jumping_windup = true
+	jump_stage = 2
 	anime_state = "jump_windup"
 	yield(get_tree().create_timer(10.0/60.0), "timeout") # 10/60 because there's 2 frames which need to play at 10fps
 	anime_state = "jump"
-	jumping_windup = false
 	jumping = true
 
 
 func jump_action_extended(): # Handles the sine wave for the jump attack
-	if jumping == true && jump_progression < 1.0 - 1.0 / 30.0:
+	if jumping == true && jump_progression < 1.0:
 		position.y = jump_attack_start_pos.y - (
 			JUMP_HEIGHT * sin(jump_progression * PI) - (
 			jump_attack_end_pos.y - jump_attack_start_pos.y)  * jump_progression)
@@ -130,22 +132,21 @@ func jump_action_extended(): # Handles the sine wave for the jump attack
 		position.x = jump_attack_start_pos.x + (
 			(jump_attack_end_pos.x - jump_attack_start_pos.x) * jump_progression)
 
-		jump_progression += 1.0 / 30.0
+		jump_progression += 1.0 / 60.0
 
 	if jumping == true && jump_progression >= 0.5:
 		anime_state = "jump_fall"
 
-	if jump_progression == 1.0:
-		print("YIPPEE")
+	if jumping == true && jump_progression >= 1.0:
 		jumping = false
+		checking = true
 		jump_progression = 0
-		jump_stage = 2
+		jump_stage = 3
 
 
 func jump_action_failed(): # Handles the sine wave for the failed jump
 	if jump_fail_progression <= 1:
-		jump_fail_progression += 1.0 / 20.0
-
+		jump_stage = 6
 		position.y = position.y - (
 		JUMP_FAIL_HEIGHT * sin(jump_fail_progression * PI) - (
 		jump_attack_fail_pos.y - position.y)  * jump_fail_progression)
@@ -153,14 +154,15 @@ func jump_action_failed(): # Handles the sine wave for the failed jump
 		position.x = position.x + (
 		(jump_attack_fail_pos.x - position.x) * jump_fail_progression)
 
+		jump_fail_progression += 1.0 / 20.0
+
 	if jump_fail_progression >= 1: # Handles running back after the above
 		jumping = false
 		anime_state = "run_left"
 		var origin_tween = create_tween()
 		origin_tween.tween_property(self, "position", 
-		# Change the value to the correct duration after study
-		origin_point, 0.7).from_current()
-		origin_tween.connect("finished", self, "end_turn")
+		origin_point, RUNBACK_TIME).from(jump_attack_fail_pos)
+		origin_tween.connect("finished", self, "end_turn", [], CONNECT_ONESHOT)
 
 
 func hammer_action():
@@ -180,4 +182,5 @@ func item_action():
 
 
 func end_turn():
+	GlobalSingletonShared.mario_battle_state = "defending"
 	anime_state = "idle"

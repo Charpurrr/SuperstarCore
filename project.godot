@@ -32,7 +32,7 @@ window/size/test_height=300
 [global]
 
 main=false
-fps=false
+fps=true
 
 [importer_defaults]
 

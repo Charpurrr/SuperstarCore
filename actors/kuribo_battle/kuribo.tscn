@@ -497,7 +497,7 @@ position = Vector2( -60, 0 )
 position = Vector2( 0, -23 )
 
 [node name="JumpAttackFail" type="Node2D" parent="."]
-position = Vector2( -30, 0 )
+position = Vector2( -60, 0 )
 
 [node name="HP" type="Label" parent="."]
 unique_name_in_owner = true

@@ -24,6 +24,7 @@ animations = [ {
 } ]
 
 [node name="Kuribo1" type="Node2D"]
+z_as_relative = false
 script = ExtResource( 2 )
 arena_type = 1
 
@@ -37,6 +38,7 @@ z_index = -1
 
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
+z_index = 1
 
 [node name="Kuribo" parent="Enemies" instance=ExtResource( 3 )]
 unique_name_in_owner = true

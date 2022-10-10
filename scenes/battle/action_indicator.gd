@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var enemy : KinematicBody2D = get_parent()
 onready var ai_sprite : AnimatedSprite = $"AnimatedSprite"
 var selected_enemy_index : int = 0
@@ -12,7 +11,7 @@ func _ready():
 	ai_sprite.playing = true
 
 
-func _input(event):
+func _input(_event):
 	if GlobalSingletonShared.mario_battle_state == "assigning":
 		if Input.is_action_pressed("right"):
 			selected_enemy_index += 1
@@ -26,7 +25,7 @@ func _input(event):
 			GlobalSingletonShared.mario_battle_state = "attacking"
 
 
-func _process(delta):
+func _process(_delta):
 	# makes the bobbing animation synced
 	current_frame += 5.0/60.0
 	ai_sprite.frame = (int(current_frame) % ai_sprite.frames.get_frame_count(ai_sprite.animation))

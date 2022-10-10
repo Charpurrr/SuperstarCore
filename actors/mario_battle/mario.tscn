@@ -956,7 +956,7 @@ animations = [ {
 "frames": [ SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ), SubResource( 414 ), SubResource( 415 ) ],
 "loop": true,
 "name": "run_left",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [ SubResource( 334 ), SubResource( 335 ), SubResource( 336 ), SubResource( 337 ), SubResource( 338 ), SubResource( 339 ), SubResource( 340 ), SubResource( 341 ), SubResource( 342 ), SubResource( 343 ), SubResource( 344 ), SubResource( 345 ) ],
 "loop": true,
@@ -974,10 +974,39 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="Animation" id=348]
-resource_name = "jump_air"
-length = 1.15
+[sub_resource type="Animation" id=346]
+resource_name = "jump_check"
+length = 0.33
 step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.17, 0.33 ),
+"transitions": PoolRealArray( 1, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 12 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.17, 0.33 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=348]
+resource_name = "jump_successful"
+length = 1.15
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -1015,49 +1044,8 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -25 ), Vector2( 0, -175 ), Vector2( 0, -25 ) ]
 }
 
-[sub_resource type="Animation" id=346]
-resource_name = "jump_check"
-length = 0.33
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.17, 0.33 ),
-"transitions": PoolRealArray( 1, 1, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 12 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.33 ),
-"transitions": PoolRealArray( 1, 0.5 ),
-"update": 0,
-"values": [ 0.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.17, 0.33 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 0.5 ), Vector2( 1, 1 ) ]
-}
-
 [sub_resource type="Animation" id=347]
-resource_name = "jump_excellent"
+resource_name = "jump_successful_dx"
 length = 0.45
 step = 0.01
 tracks/0/type = "value"
@@ -1123,7 +1111,6 @@ animations = [ {
 
 [node name="Mario" type="KinematicBody2D"]
 unique_name_in_owner = true
-z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1141,9 +1128,9 @@ offset = Vector2( 0, -50 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Puppet"]
 unique_name_in_owner = true
-anims/jump_air = SubResource( 348 )
 anims/jump_check = SubResource( 346 )
-anims/jump_excellent = SubResource( 347 )
+anims/jump_successful = SubResource( 348 )
+anims/jump_successful_dx = SubResource( 347 )
 
 [node name="JumpFailCheck" type="ResourcePreloader" parent="."]
 script = ExtResource( 19 )
