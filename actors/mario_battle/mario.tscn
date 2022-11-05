@@ -1,27 +1,194 @@
-[gd_scene load_steps=249 format=2]
+[gd_scene load_steps=312 format=2]
 
-[ext_resource path="res://actors/mario_battle/battle_mario.gd" type="Script" id=1]
-[ext_resource path="res://actors/mario_battle/idle.png" type="Texture" id=2]
-[ext_resource path="res://actors/mario_battle/thinking_tired.png" type="Texture" id=3]
-[ext_resource path="res://actors/mario_battle/jump.png" type="Texture" id=4]
-[ext_resource path="res://actors/mario_battle/thinking.png" type="Texture" id=5]
-[ext_resource path="res://actors/mario_battle/idle_tired.png" type="Texture" id=6]
+[ext_resource path="res://actors/mario_battle/b_mario.gd" type="Script" id=1]
+[ext_resource path="res://actors/mario_battle/anime/idle.png" type="Texture" id=2]
+[ext_resource path="res://actors/mario_battle/anime/thinking_tired.png" type="Texture" id=3]
+[ext_resource path="res://actors/mario_battle/anime/jump.png" type="Texture" id=4]
+[ext_resource path="res://actors/mario_battle/anime/thinking.png" type="Texture" id=5]
+[ext_resource path="res://actors/mario_battle/anime/idle_tired.png" type="Texture" id=6]
 [ext_resource path="res://scenes/battle/assets/selection_16.png" type="Texture" id=7]
-[ext_resource path="res://actors/mario_battle/jump_land.png" type="Texture" id=8]
-[ext_resource path="res://actors/mario_battle/jump_fail.png" type="Texture" id=9]
-[ext_resource path="res://actors/mario_battle/jump_fail_land.png" type="Texture" id=10]
-[ext_resource path="res://actors/mario_battle/jump_successful.png" type="Texture" id=11]
-[ext_resource path="res://actors/mario_battle/jump_successful_air_land.png" type="Texture" id=12]
-[ext_resource path="res://actors/mario_battle/jump_successful_air.png" type="Texture" id=13]
-[ext_resource path="res://actors/mario_battle/jump_windup.png" type="Texture" id=14]
-[ext_resource path="res://actors/mario_battle/jump_successful_fail.png" type="Texture" id=15]
-[ext_resource path="res://actors/mario_battle/jump_excellent.png" type="Texture" id=16]
-[ext_resource path="res://actors/mario_battle/run_right.png" type="Texture" id=17]
-[ext_resource path="res://actors/mario_battle/jump_fall.png" type="Texture" id=18]
-[ext_resource path="res://actors/mario_battle/jump_fail_check.gd" type="Script" id=19]
-[ext_resource path="res://actors/mario_battle/run_left.png" type="Texture" id=20]
+[ext_resource path="res://actors/mario_battle/anime/jump_land.png" type="Texture" id=8]
+[ext_resource path="res://actors/mario_battle/anime/jump_fail.png" type="Texture" id=9]
+[ext_resource path="res://actors/mario_battle/anime/jump_fail_land.png" type="Texture" id=10]
+[ext_resource path="res://actors/mario_battle/anime/jump_successful.png" type="Texture" id=11]
+[ext_resource path="res://actors/mario_battle/anime/jump_successful_air_land.png" type="Texture" id=12]
+[ext_resource path="res://actors/mario_battle/anime/jump_successful_air.png" type="Texture" id=13]
+[ext_resource path="res://actors/mario_battle/anime/jump_windup.png" type="Texture" id=14]
+[ext_resource path="res://actors/mario_battle/anime/jump_successful_fail.png" type="Texture" id=15]
+[ext_resource path="res://actors/mario_battle/anime/jump_excellent.png" type="Texture" id=16]
+[ext_resource path="res://actors/mario_battle/anime/run_right.png" type="Texture" id=17]
+[ext_resource path="res://actors/mario_battle/anime/jump_fall.png" type="Texture" id=18]
+[ext_resource path="res://actors/mario_battle/jump_check.gd" type="Script" id=19]
+[ext_resource path="res://actors/mario_battle/anime/run_left.png" type="Texture" id=20]
+[ext_resource path="res://actors/mario_battle/anime/in_style.png" type="Texture" id=21]
+[ext_resource path="res://actors/mario_battle/anime/jump_excellent_recover.png" type="Texture" id=22]
+[ext_resource path="res://actors/mario_battle/anime/hammer_takeout.png" type="Texture" id=23]
+[ext_resource path="res://actors/mario_battle/anime/hammer_run.png" type="Texture" id=24]
+[ext_resource path="res://actors/mario_battle/anime/hammer_windup.png" type="Texture" id=25]
+[ext_resource path="res://actors/mario_battle/anime/hammer_start.png" type="Texture" id=26]
+[ext_resource path="res://actors/mario_battle/anime/hammer_edge.png" type="Texture" id=27]
 
 [sub_resource type="CapsuleShape2D" id=50]
+
+[sub_resource type="AtlasTexture" id=468]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=469]
+atlas = ExtResource( 27 )
+region = Rect2( 152, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=470]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=432]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=433]
+atlas = ExtResource( 24 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=434]
+atlas = ExtResource( 24 )
+region = Rect2( 204, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=435]
+atlas = ExtResource( 24 )
+region = Rect2( 306, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=436]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=437]
+atlas = ExtResource( 24 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=438]
+atlas = ExtResource( 24 )
+region = Rect2( 204, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=439]
+atlas = ExtResource( 24 )
+region = Rect2( 306, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=440]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=441]
+atlas = ExtResource( 24 )
+region = Rect2( 102, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=442]
+atlas = ExtResource( 24 )
+region = Rect2( 204, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=443]
+atlas = ExtResource( 24 )
+region = Rect2( 306, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=453]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=454]
+atlas = ExtResource( 26 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=455]
+atlas = ExtResource( 26 )
+region = Rect2( 204, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=456]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=457]
+atlas = ExtResource( 26 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=444]
+atlas = ExtResource( 23 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=445]
+atlas = ExtResource( 23 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=446]
+atlas = ExtResource( 23 )
+region = Rect2( 204, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=447]
+atlas = ExtResource( 23 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=448]
+atlas = ExtResource( 23 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=449]
+atlas = ExtResource( 23 )
+region = Rect2( 204, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=450]
+atlas = ExtResource( 23 )
+region = Rect2( 0, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=451]
+atlas = ExtResource( 23 )
+region = Rect2( 102, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=452]
+atlas = ExtResource( 23 )
+region = Rect2( 204, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=458]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=459]
+atlas = ExtResource( 25 )
+region = Rect2( 152, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=460]
+atlas = ExtResource( 25 )
+region = Rect2( 304, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=461]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=462]
+atlas = ExtResource( 25 )
+region = Rect2( 152, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=463]
+atlas = ExtResource( 25 )
+region = Rect2( 304, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=464]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=465]
+atlas = ExtResource( 25 )
+region = Rect2( 152, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=466]
+atlas = ExtResource( 25 )
+region = Rect2( 304, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=467]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 306, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=471]
+atlas = ExtResource( 25 )
+region = Rect2( 152, 306, 150, 100 )
 
 [sub_resource type="AtlasTexture" id=356]
 atlas = ExtResource( 2 )
@@ -339,6 +506,42 @@ region = Rect2( 510, 408, 100, 100 )
 atlas = ExtResource( 6 )
 region = Rect2( 0, 510, 100, 100 )
 
+[sub_resource type="AtlasTexture" id=416]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=417]
+atlas = ExtResource( 21 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=418]
+atlas = ExtResource( 21 )
+region = Rect2( 204, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=419]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=420]
+atlas = ExtResource( 21 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=421]
+atlas = ExtResource( 21 )
+region = Rect2( 204, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=422]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=423]
+atlas = ExtResource( 21 )
+region = Rect2( 102, 204, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=424]
+atlas = ExtResource( 21 )
+region = Rect2( 204, 204, 100, 100 )
+
 [sub_resource type="AtlasTexture" id=77]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 100, 100 )
@@ -442,6 +645,34 @@ region = Rect2( 0, 102, 100, 100 )
 [sub_resource type="AtlasTexture" id=298]
 atlas = ExtResource( 8 )
 region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=425]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=426]
+atlas = ExtResource( 22 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=427]
+atlas = ExtResource( 22 )
+region = Rect2( 204, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=428]
+atlas = ExtResource( 22 )
+region = Rect2( 306, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=429]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=430]
+atlas = ExtResource( 22 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=431]
+atlas = ExtResource( 22 )
+region = Rect2( 204, 102, 100, 100 )
 
 [sub_resource type="AtlasTexture" id=304]
 atlas = ExtResource( 13 )
@@ -893,6 +1124,31 @@ region = Rect2( 102, 510, 100, 100 )
 
 [sub_resource type="SpriteFrames" id=49]
 animations = [ {
+"frames": [ SubResource( 468 ), SubResource( 469 ), SubResource( 470 ) ],
+"loop": false,
+"name": "hammer_edge",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 432 ), SubResource( 433 ), SubResource( 434 ), SubResource( 435 ), SubResource( 436 ), SubResource( 437 ), SubResource( 438 ), SubResource( 439 ), SubResource( 440 ), SubResource( 441 ), SubResource( 442 ), SubResource( 443 ) ],
+"loop": true,
+"name": "hammer_run",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 453 ), SubResource( 454 ), SubResource( 455 ), SubResource( 456 ), SubResource( 457 ) ],
+"loop": false,
+"name": "hammer_start",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 444 ), SubResource( 445 ), SubResource( 446 ), SubResource( 447 ), SubResource( 448 ), SubResource( 449 ), SubResource( 450 ), SubResource( 451 ), SubResource( 452 ) ],
+"loop": false,
+"name": "hammer_takeout",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 458 ), SubResource( 459 ), SubResource( 460 ), SubResource( 461 ), SubResource( 462 ), SubResource( 463 ), SubResource( 464 ), SubResource( 465 ), SubResource( 466 ), SubResource( 467 ), SubResource( 471 ) ],
+"loop": false,
+"name": "hammer_windup",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ), SubResource( 363 ), SubResource( 364 ), SubResource( 365 ), SubResource( 366 ), SubResource( 367 ), SubResource( 368 ), SubResource( 369 ), SubResource( 370 ), SubResource( 371 ), SubResource( 372 ), SubResource( 373 ), SubResource( 374 ), SubResource( 375 ), SubResource( 376 ), SubResource( 377 ), SubResource( 378 ), SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ), SubResource( 386 ), SubResource( 387 ), SubResource( 388 ), SubResource( 389 ), SubResource( 390 ), SubResource( 391 ), SubResource( 392 ), SubResource( 393 ), SubResource( 394 ), SubResource( 395 ), SubResource( 396 ), SubResource( 397 ), SubResource( 398 ), SubResource( 399 ), SubResource( 400 ), SubResource( 401 ), SubResource( 402 ), SubResource( 403 ) ],
 "loop": true,
 "name": "idle",
@@ -901,6 +1157,11 @@ animations = [ {
 "frames": [ SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ), SubResource( 198 ), SubResource( 199 ), SubResource( 200 ), SubResource( 201 ), SubResource( 202 ), SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ), SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 217 ), SubResource( 218 ), SubResource( 219 ) ],
 "loop": true,
 "name": "idle_tired",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 416 ), SubResource( 417 ), SubResource( 418 ), SubResource( 419 ), SubResource( 420 ), SubResource( 421 ), SubResource( 422 ), SubResource( 423 ), SubResource( 424 ) ],
+"loop": true,
+"name": "in_style",
 "speed": 13.0
 }, {
 "frames": [ SubResource( 77 ) ],
@@ -936,6 +1197,11 @@ animations = [ {
 "frames": [ SubResource( 295 ), SubResource( 296 ), SubResource( 297 ), SubResource( 298 ) ],
 "loop": false,
 "name": "jump_land",
+"speed": 13.0
+}, {
+"frames": [ SubResource( 425 ), SubResource( 426 ), SubResource( 427 ), SubResource( 428 ), SubResource( 429 ), SubResource( 430 ), SubResource( 431 ) ],
+"loop": false,
+"name": "jump_land_dx",
 "speed": 13.0
 }, {
 "frames": [ SubResource( 304 ), SubResource( 305 ), SubResource( 306 ), SubResource( 307 ), SubResource( 308 ), SubResource( 309 ), SubResource( 310 ), SubResource( 311 ), SubResource( 312 ), SubResource( 313 ), SubResource( 314 ), SubResource( 315 ), SubResource( 316 ), SubResource( 317 ), SubResource( 318 ), SubResource( 319 ), SubResource( 320 ), SubResource( 321 ), SubResource( 322 ), SubResource( 323 ), SubResource( 324 ), SubResource( 325 ), SubResource( 326 ) ],
@@ -1006,7 +1272,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=348]
 resource_name = "jump_successful"
 length = 1.15
-step = 1.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -1114,6 +1380,7 @@ unique_name_in_owner = true
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -25 )
 z_index = 1
 z_as_relative = false
@@ -1121,8 +1388,11 @@ shape = SubResource( 50 )
 
 [node name="Puppet" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
+rotation = -6.28319
 frames = SubResource( 49 )
-animation = "run_left"
+animation = "hammer_edge"
+frame = 2
+playing = true
 offset = Vector2( 0, -50 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Puppet"]
@@ -1131,7 +1401,7 @@ anims/jump_check = SubResource( 346 )
 anims/jump_successful = SubResource( 348 )
 anims/jump_successful_dx = SubResource( 347 )
 
-[node name="JumpFailCheck" type="ResourcePreloader" parent="."]
+[node name="JumpCheck" type="ResourcePreloader" parent="."]
 script = ExtResource( 19 )
 
 [node name="SelectionBlocks" type="Node2D" parent="."]
@@ -1142,4 +1412,5 @@ unique_name_in_owner = true
 frames = SubResource( 354 )
 animation = "jump"
 
-[connection signal="animation_finished" from="Puppet/AnimationPlayer" to="JumpFailCheck" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Puppet" to="." method="_on_Puppet_animation_finished"]
+[connection signal="animation_finished" from="Puppet/AnimationPlayer" to="JumpCheck" method="_on_AnimationPlayer_animation_finished"]

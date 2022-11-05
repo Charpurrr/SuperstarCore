@@ -16,7 +16,7 @@ var luigi_def : int = 0
 var luigi_speed : int = 0
 var luigi_stache : int = 0
 
-# Battle Variables
+# battle variables
 var mario_battle_state : String
 var amount_enemies_field : int
 var final_selected_enemy : int

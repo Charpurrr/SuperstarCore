@@ -30,7 +30,6 @@ arena_type = 1
 [node name="Bros" type="Node2D" parent="."]
 
 [node name="Mario" parent="Bros" instance=ExtResource( 4 )]
-position = Vector2( 343, 171 )
 z_index = 1
 
 [node name="Luigi" parent="Bros" instance=ExtResource( 5 )]
