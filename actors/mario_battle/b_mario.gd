@@ -12,6 +12,7 @@ onready var rating_sprite : AnimatedSprite = $"../../Rating"
 onready var jumpcheck : ResourcePreloader = $"%JumpCheck"
 onready var hammercheck : ResourcePreloader = $"%HammerCheck"
 
+# A lot of the variables exist to avoid getting stuck in _process loops!!
 # command block vars
 onready var selection_block : Node = $"%Block"
 var command_select : int = 1 # [1: jump] [2: hammer] [3: bros] [4: run] [5: item]
@@ -29,8 +30,11 @@ const JUMP_HEIGHT : int = 100
 
 var jumping : bool = false # Playing the first jump animation
 
+var jump_bounce : bool = false # Allow bouncing on an enemy
+
 var jump_attack_fail_pos : Vector2 # Ending position of failed jump
 var jump_fail_progression : float = 0.00 # How far along failed jump is
+var jump_fail_bounce_amt : int = 1 # What bounce the failed jump is processing
 const JUMP_FAIL_HEIGHT : int = 20
 # ^ the second bounce is this value / 2
 
@@ -59,7 +63,7 @@ var running_back_hammer : bool = false
 # shared vars
 var origin_point : Vector2
 var anime_state : String = "thinking"
-const RUN_TIME : float = 0.5 # The time it takes to run toward, and back from an enemy
+const RUN_TIME : float = 0.5 # The time it takes to run toward and back from an enemy
 
 
 func _ready():
@@ -68,6 +72,8 @@ func _ready():
 
 
 func _process(_delta):
+	print(jump_fail_bounce_amt) # General print for testing
+
 	command_block_handler(_delta)
 	jump_action(_delta)
 	hammer_action(_delta)
@@ -121,8 +127,8 @@ func jump_action(_delta):
 				allow_jump_run = true
 				jump_stage = 1
 
-			1: # Running toward and jumping on the enemy (tween)
-				if allow_jump_run == true:
+			1: # Running toward the enemy (tween)
+				if allow_jump_run == true and GlobalSingletonShared.mario_battle_state == "attacking":
 					anime_state = "run_right"
 
 					for enemy in enemy_category.get_children():
@@ -136,18 +142,21 @@ func jump_action(_delta):
 							jump_attack_start_pos, RUN_TIME).from(origin_point)
 							# sets anime_state to jump_windup as soon as this tween finishes
 							jump_attack_tween.connect("finished", self, "set", ["anime_state", "jump_windup"], CONNECT_ONESHOT)
+							# -> _on_Puppet_animation_finished()
 
 							allow_jump_run = false
 
-			2: # play the jump attack's bounce animation (ref JumpCheck)
-				anime_state = "jump_check"
-				anime_player.play("jump_check")
+			2: # Play the jump attack's bounce animation
+				if jump_bounce == true:
+					anime_state = "jump_check"
+					anime_player.play("jump_check")
 
 			4: # excellent
 				pass
 
 			5: # pose
 				anime_state = "jump_land_dx"
+				# -> _on_Puppet_animation_finished()
 
 			6: # recover
 				pass
@@ -187,9 +196,10 @@ func jump_action(_delta):
 			anime_state = "jump_fall"
 
 		if jumping == true and jump_progression >= 1.0:
-
 			jump_progression = 0
 			jump_stage = 2
+			jumping = false
+			jump_bounce = true
 
 		# Handles running back from a jump
 		if running_back_jump == true:
@@ -203,28 +213,42 @@ func jump_action(_delta):
 			running_back_jump = false
 
 
-func jump_action_cancelled(_delta): # Handles the sine wave for a cancelled jump
+func jump_action_cancelled(_delta): # Handles the sine wave for a cancelled jump (Fail, OK, GOOD)
+	jump_stage = 0
+
 	if jump_fail_progression <= 1:
 		if jump_rating == "Fail":
 			actor.offset.y = -40
 
-		jump_stage = 0
+			if jump_fail_bounce_amt == 1: # First bounce for failed jump
+				position.y = position.y - (
+				JUMP_FAIL_HEIGHT * sin(jump_fail_progression * PI) - (
+				jump_attack_fail_pos.y - position.y)  * jump_fail_progression)
 
-		position.y = position.y - (
-		JUMP_FAIL_HEIGHT * sin(jump_fail_progression * PI) - (
-		jump_attack_fail_pos.y - position.y)  * jump_fail_progression)
+				position.x = position.x + (
+				(jump_attack_fail_pos.x - position.x) * jump_fail_progression)
 
-		position.x = position.x + (
-		(jump_attack_fail_pos.x - position.x) * jump_fail_progression)
+				jump_fail_progression += 3.0 * _delta
 
-		jump_fail_progression += 3.0 * _delta
+				if jump_fail_progression >= 1:
+					jump_fail_bounce_amt = 2
 
-	if jump_fail_progression >= 1: # Handles running back after the above
-		if jump_rating == "Fail":
-			anime_state = "jump_fail_land"
-			jump_rating = ""
-		else:
-			running_back_jump = true
+			if jump_fail_bounce_amt == 2: # Second bounce for failed jump
+				jump_fail_progression = 0
+
+				position.y = position.y - (
+				JUMP_FAIL_HEIGHT / 2 * sin(jump_fail_progression * PI) - (
+				jump_attack_fail_pos.y - position.y)  * jump_fail_progression)
+
+				position.x = position.x + (
+				(jump_attack_fail_pos.x - position.x) * jump_fail_progression)
+
+				jump_fail_progression += 3.0 * _delta
+
+				if jump_fail_progression >= 1:
+					anime_state = "jump_fail_land"
+					# -> _on_Puppet_animation_finished()
+					jump_rating = ""
 
 
 func hammer_action(_delta):
@@ -238,9 +262,10 @@ func hammer_action(_delta):
 			1: # Takeout hammer
 				if GlobalSingletonShared.mario_battle_state == "attacking":
 					anime_state = "hammer_takeout"
+					# -> _on_Puppet_animation_finished()
 
-			2: # Running toward enemy
-				if allow_hammer_run == true: # Handles running towards an enemy
+			2: # Running toward the enemy (tween)
+				if allow_hammer_run == true:
 						anime_state = "hammer_run"
 
 						for enemy in enemy_category.get_children():
@@ -251,6 +276,7 @@ func hammer_action(_delta):
 								hammer_attack_tween.tween_property(self, "position", 
 								hammer_attack_start_pos, RUN_TIME).from(origin_point)
 								hammer_attack_tween.connect("finished", self, "set", ["anime_state", "hammer_start"], CONNECT_ONESHOT)
+								# -> _on_Puppet_animation_finished()
 
 								allow_hammer_run = false
 
@@ -281,12 +307,14 @@ func hammer_action(_delta):
 			"Excellent":
 				hammer_rating = ""
 				anime_state = "hammer_excellent_edge"
+				# -> _on_Puppet_animation_finished()
 
 			"Fail":
 				hammer_rating = ""
 				hammer_windupped = false
 				hammer_disconnected.visible = true
 				anime_player.play("hammer_disconnect")
+				# -> _on_AnimationPlayer_animation_finished()
 				anime_state = "hammer_fail"
 
 
@@ -346,6 +374,7 @@ func _on_Puppet_animation_finished():
 		"hammer_start":
 			checking_hammer_rating = true
 			anime_state = "hammer_windup"
+			# -> _on_Puppet_animation_finished()
 
 		"hammer_windup":
 			hammer_windupped = true
@@ -353,10 +382,12 @@ func _on_Puppet_animation_finished():
 
 		"hammer_excellent_edge":
 			anime_state = "hammer_excellent"
+			# -> _on_Puppet_animation_finished()
 
 		"hammer_excellent":
 			hammercheck.show_rating()
 			anime_state = "hammer_swing_impact"
+			# -> _on_Puppet_animation_finished()
 
 		"hammer_swing":
 			hammercheck.show_rating()
@@ -364,6 +395,7 @@ func _on_Puppet_animation_finished():
 
 		"hammer_swing_impact":
 			anime_state = "hammer_return"
+			# -> _on_Puppet_animation_finished()
 
 		"hammer_return":
 			running_back_hammer = true
@@ -373,6 +405,9 @@ func _on_Puppet_animation_finished():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
+		"jump_check":
+			jump_bounce = false
+
 		"hammer_disconnect":
 			running_back_hammer = true
 			hammer_disconnected.visible = false

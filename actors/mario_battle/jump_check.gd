@@ -35,12 +35,12 @@ func _process(_delta):
 	if actor.checking_jump_rating == true:
 		check_timer += 1.0 * _delta * 60.0
 
-	# Sets checking_x to true based on the value of check_timer
-	for check in check_timings:
-		var timing = check[0]
-		var var_name = check[1]
-		if check_timer >= timing:
-			set(var_name, true)
+		# Sets checking_x to true based on the value of check_timer
+		for check in check_timings:
+			var timing = check[0]
+			var var_name = check[1]
+			if check_timer >= timing:
+				set(var_name, true)
 
 		if checking_ok:
 			if Input.is_action_just_pressed("A"):
@@ -79,17 +79,18 @@ func _process(_delta):
 
 		# FALSE rating is handled in _on_AnimationPlayer_animation_finished()
 
+#	theprintisreal2401()
+
 	# Resets checking_x to false after this script finishes checking
 	for check in check_timings:
 		var var_name = check[1]
 		set(var_name, false)
 
-#	theprintisreal2401()
-
 
 func theprintisreal2401():
 	# Debug print - very useful!
 	print(
+	"TIME", check_timer, "\n",
 	"OK ", checking_ok, "\n",
 	"GOOD ", checking_good, "\n",
 	"GREAT ", checking_great, "\n",
