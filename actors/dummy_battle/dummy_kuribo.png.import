@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arena_type_preview_invalid.png-5437e3b56c75a78c7cf4d5c7619046ba.stex"
+path="res://.import/dummy_kuribo.png-e31da9e7d15a549f0b9b18a5de95543c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/debug/arena_type_preview_invalid.png"
-dest_files=[ "res://.import/arena_type_preview_invalid.png-5437e3b56c75a78c7cf4d5c7619046ba.stex" ]
+source_file="res://actors/dummy_battle/dummy_kuribo.png"
+dest_files=[ "res://.import/dummy_kuribo.png-e31da9e7d15a549f0b9b18a5de95543c.stex" ]
 
 [params]
 

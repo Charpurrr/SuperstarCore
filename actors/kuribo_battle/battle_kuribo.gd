@@ -1,8 +1,8 @@
+class_name BattleEnemy
 extends KinematicBody2D
+# A fightable enemy in the battle arena
 
-onready var hp_label : Label = $"%HP"
-onready var kuribo_puppet : AnimatedSprite = $"%Puppet"
-onready var collision : CollisionShape2D = $"%CollisionShape2D"
+onready var actor : AnimatedSprite = $"Puppet"
 onready var action_indicator : Node = $"%ActionIndicator"
 onready var anime : AnimationPlayer = $"%AnimationPlayer"
 
@@ -12,8 +12,8 @@ var hp : int = 30
 
 
 func _ready():
-	kuribo_puppet.playing = true
+	actor.playing = true
 
 
 func _process(_delta):
-	kuribo_puppet.animation = anime_state
+	actor.animation = anime_state

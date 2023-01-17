@@ -1,4 +1,4 @@
-[gd_scene load_steps=312 format=2]
+[gd_scene load_steps=362 format=2]
 
 [ext_resource path="res://actors/mario_battle/b_mario.gd" type="Script" id=1]
 [ext_resource path="res://actors/mario_battle/anime/idle.png" type="Texture" id=2]
@@ -27,20 +27,159 @@
 [ext_resource path="res://actors/mario_battle/anime/hammer_windup.png" type="Texture" id=25]
 [ext_resource path="res://actors/mario_battle/anime/hammer_start.png" type="Texture" id=26]
 [ext_resource path="res://actors/mario_battle/anime/hammer_edge.png" type="Texture" id=27]
+[ext_resource path="res://actors/mario_battle/anime/hammer_fail.png" type="Texture" id=28]
+[ext_resource path="res://actors/mario_battle/hammer_check.gd" type="Script" id=29]
+[ext_resource path="res://actors/mario_battle/anime/hammer_disconnect.png" type="Texture" id=30]
+[ext_resource path="res://actors/mario_battle/anime/hammer_excellent.png" type="Texture" id=31]
+[ext_resource path="res://actors/mario_battle/anime/hammer_swing.png" type="Texture" id=32]
+[ext_resource path="res://actors/mario_battle/anime/hammer_swing_impact.png" type="Texture" id=33]
+[ext_resource path="res://actors/mario_battle/anime/hammer_return.png" type="Texture" id=34]
 
 [sub_resource type="CapsuleShape2D" id=50]
 
-[sub_resource type="AtlasTexture" id=468]
+[sub_resource type="AtlasTexture" id=493]
+atlas = ExtResource( 31 )
+region = Rect2( 0, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=494]
+atlas = ExtResource( 31 )
+region = Rect2( 152, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=495]
+atlas = ExtResource( 31 )
+region = Rect2( 304, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=496]
+atlas = ExtResource( 31 )
+region = Rect2( 0, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=497]
+atlas = ExtResource( 31 )
+region = Rect2( 152, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=498]
+atlas = ExtResource( 31 )
+region = Rect2( 304, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=499]
+atlas = ExtResource( 31 )
+region = Rect2( 0, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=500]
+atlas = ExtResource( 31 )
+region = Rect2( 152, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=501]
+atlas = ExtResource( 31 )
+region = Rect2( 304, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=502]
 atlas = ExtResource( 27 )
 region = Rect2( 0, 0, 150, 100 )
 
-[sub_resource type="AtlasTexture" id=469]
+[sub_resource type="AtlasTexture" id=503]
 atlas = ExtResource( 27 )
 region = Rect2( 152, 0, 150, 100 )
 
-[sub_resource type="AtlasTexture" id=470]
+[sub_resource type="AtlasTexture" id=504]
 atlas = ExtResource( 27 )
 region = Rect2( 0, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=505]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=506]
+atlas = ExtResource( 27 )
+region = Rect2( 152, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=507]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=475]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=476]
+atlas = ExtResource( 28 )
+region = Rect2( 152, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=477]
+atlas = ExtResource( 28 )
+region = Rect2( 304, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=478]
+atlas = ExtResource( 28 )
+region = Rect2( 456, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=479]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=480]
+atlas = ExtResource( 28 )
+region = Rect2( 152, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=481]
+atlas = ExtResource( 28 )
+region = Rect2( 304, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=482]
+atlas = ExtResource( 28 )
+region = Rect2( 456, 102, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=483]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=484]
+atlas = ExtResource( 28 )
+region = Rect2( 152, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=485]
+atlas = ExtResource( 28 )
+region = Rect2( 304, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=486]
+atlas = ExtResource( 28 )
+region = Rect2( 456, 204, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=487]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 306, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=488]
+atlas = ExtResource( 28 )
+region = Rect2( 152, 306, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=489]
+atlas = ExtResource( 28 )
+region = Rect2( 304, 306, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=490]
+atlas = ExtResource( 28 )
+region = Rect2( 456, 306, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=491]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 408, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=514]
+atlas = ExtResource( 34 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=515]
+atlas = ExtResource( 34 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=516]
+atlas = ExtResource( 34 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=517]
+atlas = ExtResource( 34 )
+region = Rect2( 102, 102, 100, 100 )
 
 [sub_resource type="AtlasTexture" id=432]
 atlas = ExtResource( 24 )
@@ -108,6 +247,30 @@ region = Rect2( 0, 102, 100, 100 )
 
 [sub_resource type="AtlasTexture" id=457]
 atlas = ExtResource( 26 )
+region = Rect2( 102, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=508]
+atlas = ExtResource( 32 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=509]
+atlas = ExtResource( 32 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=518]
+atlas = ExtResource( 33 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=519]
+atlas = ExtResource( 33 )
+region = Rect2( 102, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=520]
+atlas = ExtResource( 33 )
+region = Rect2( 0, 102, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=521]
+atlas = ExtResource( 33 )
 region = Rect2( 102, 102, 100, 100 )
 
 [sub_resource type="AtlasTexture" id=444]
@@ -189,6 +352,18 @@ region = Rect2( 0, 306, 150, 100 )
 [sub_resource type="AtlasTexture" id=471]
 atlas = ExtResource( 25 )
 region = Rect2( 152, 306, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=472]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=473]
+atlas = ExtResource( 27 )
+region = Rect2( 152, 0, 150, 100 )
+
+[sub_resource type="AtlasTexture" id=474]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 102, 150, 100 )
 
 [sub_resource type="AtlasTexture" id=356]
 atlas = ExtResource( 2 )
@@ -1124,27 +1299,52 @@ region = Rect2( 102, 510, 100, 100 )
 
 [sub_resource type="SpriteFrames" id=49]
 animations = [ {
-"frames": [ SubResource( 468 ), SubResource( 469 ), SubResource( 470 ) ],
+"frames": [ SubResource( 493 ), SubResource( 494 ), SubResource( 495 ), SubResource( 496 ), SubResource( 497 ), SubResource( 498 ), SubResource( 499 ), SubResource( 500 ), SubResource( 501 ) ],
 "loop": false,
-"name": "hammer_edge",
+"name": "hammer_excellent",
+"speed": 30.0
+}, {
+"frames": [ SubResource( 502 ), SubResource( 503 ), SubResource( 504 ), SubResource( 505 ), SubResource( 506 ), SubResource( 507 ) ],
+"loop": false,
+"name": "hammer_excellent_edge",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 475 ), SubResource( 476 ), SubResource( 477 ), SubResource( 478 ), SubResource( 479 ), SubResource( 480 ), SubResource( 481 ), SubResource( 482 ), SubResource( 483 ), SubResource( 484 ), SubResource( 485 ), SubResource( 486 ), SubResource( 487 ), SubResource( 488 ), SubResource( 489 ), SubResource( 490 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ), SubResource( 491 ) ],
+"loop": false,
+"name": "hammer_fail",
+"speed": 30.0
+}, {
+"frames": [ SubResource( 514 ), SubResource( 515 ), SubResource( 516 ), SubResource( 517 ) ],
+"loop": false,
+"name": "hammer_return",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 432 ), SubResource( 433 ), SubResource( 434 ), SubResource( 435 ), SubResource( 436 ), SubResource( 437 ), SubResource( 438 ), SubResource( 439 ), SubResource( 440 ), SubResource( 441 ), SubResource( 442 ), SubResource( 443 ) ],
 "loop": true,
 "name": "hammer_run",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [ SubResource( 453 ), SubResource( 454 ), SubResource( 455 ), SubResource( 456 ), SubResource( 457 ) ],
 "loop": false,
 "name": "hammer_start",
 "speed": 13.0
 }, {
+"frames": [ SubResource( 508 ), SubResource( 509 ) ],
+"loop": false,
+"name": "hammer_swing",
+"speed": 100.0
+}, {
+"frames": [ SubResource( 518 ), SubResource( 519 ), SubResource( 520 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ), SubResource( 521 ) ],
+"loop": false,
+"name": "hammer_swing_impact",
+"speed": 30.0
+}, {
 "frames": [ SubResource( 444 ), SubResource( 445 ), SubResource( 446 ), SubResource( 447 ), SubResource( 448 ), SubResource( 449 ), SubResource( 450 ), SubResource( 451 ), SubResource( 452 ) ],
 "loop": false,
 "name": "hammer_takeout",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 458 ), SubResource( 459 ), SubResource( 460 ), SubResource( 461 ), SubResource( 462 ), SubResource( 463 ), SubResource( 464 ), SubResource( 465 ), SubResource( 466 ), SubResource( 467 ), SubResource( 471 ) ],
+"frames": [ SubResource( 458 ), SubResource( 459 ), SubResource( 460 ), SubResource( 461 ), SubResource( 462 ), SubResource( 463 ), SubResource( 464 ), SubResource( 465 ), SubResource( 466 ), SubResource( 467 ), SubResource( 471 ), SubResource( 472 ), SubResource( 473 ), SubResource( 474 ) ],
 "loop": false,
 "name": "hammer_windup",
 "speed": 15.0
@@ -1222,12 +1422,12 @@ animations = [ {
 "frames": [ SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ), SubResource( 413 ), SubResource( 414 ), SubResource( 415 ) ],
 "loop": true,
 "name": "run_left",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [ SubResource( 334 ), SubResource( 335 ), SubResource( 336 ), SubResource( 337 ), SubResource( 338 ), SubResource( 339 ), SubResource( 340 ), SubResource( 341 ), SubResource( 342 ), SubResource( 343 ), SubResource( 344 ), SubResource( 345 ) ],
 "loop": true,
 "name": "run_right",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [ SubResource( 220 ), SubResource( 221 ), SubResource( 222 ), SubResource( 223 ), SubResource( 224 ), SubResource( 225 ), SubResource( 226 ), SubResource( 227 ), SubResource( 228 ), SubResource( 229 ), SubResource( 230 ), SubResource( 231 ), SubResource( 232 ), SubResource( 233 ), SubResource( 234 ), SubResource( 235 ), SubResource( 236 ), SubResource( 237 ), SubResource( 238 ), SubResource( 239 ), SubResource( 240 ), SubResource( 241 ), SubResource( 242 ), SubResource( 243 ), SubResource( 244 ), SubResource( 245 ) ],
 "loop": true,
@@ -1239,6 +1439,47 @@ animations = [ {
 "name": "thinking_tired",
 "speed": 10.0
 } ]
+
+[sub_resource type="Animation" id=492]
+resource_name = "hammer_disconnect"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("HammerDisconnect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -41, -22.0002 ), Vector2( -51, -47 ), Vector2( -61, -9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HammerDisconnect:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -180.0, -270.0, -360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HammerDisconnect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=346]
 resource_name = "jump_check"
@@ -1388,21 +1629,34 @@ shape = SubResource( 50 )
 
 [node name="Puppet" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
+position = Vector2( 1, 0 )
 rotation = -6.28319
 frames = SubResource( 49 )
-animation = "hammer_edge"
-frame = 2
-playing = true
+animation = "in_style"
 offset = Vector2( 0, -50 )
+
+[node name="HammerDisconnect" type="Sprite" parent="Puppet"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -61, -9 )
+rotation = -6.28319
+texture = ExtResource( 30 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Puppet"]
 unique_name_in_owner = true
+anims/hammer_disconnect = SubResource( 492 )
 anims/jump_check = SubResource( 346 )
 anims/jump_successful = SubResource( 348 )
 anims/jump_successful_dx = SubResource( 347 )
 
 [node name="JumpCheck" type="ResourcePreloader" parent="."]
+unique_name_in_owner = true
 script = ExtResource( 19 )
+
+[node name="HammerCheck" type="ResourcePreloader" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 29 )
 
 [node name="SelectionBlocks" type="Node2D" parent="."]
 position = Vector2( 0, -80 )
@@ -1413,4 +1667,6 @@ frames = SubResource( 354 )
 animation = "jump"
 
 [connection signal="animation_finished" from="Puppet" to="." method="_on_Puppet_animation_finished"]
+[connection signal="animation_finished" from="Puppet" to="HammerCheck" method="_on_Puppet_animation_finished"]
+[connection signal="animation_finished" from="Puppet/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Puppet/AnimationPlayer" to="JumpCheck" method="_on_AnimationPlayer_animation_finished"]

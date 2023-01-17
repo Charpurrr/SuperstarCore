@@ -13,3 +13,5 @@ func _process(delta):
 		mario.anime_state = "thinking_tired"
 	if get_selected_id() == 4:
 		mario.anime_state = "jump"
+	if get_selected_id() == 4:
+		mario.anime_state = "hammer_fail"

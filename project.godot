@@ -8,10 +8,26 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "BattleEnemy",
+"language": "GDScript",
+"path": "res://actors/kuribo_battle/battle_kuribo.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "BattlePlayer",
+"language": "GDScript",
+"path": "res://actors/mario_battle/b_mario.gd"
+} ]
+_global_script_class_icons={
+"BattleEnemy": "",
+"BattlePlayer": ""
+}
+
 [application]
 
 config/name="Superstar Core"
-run/main_scene="res://actors/kuribo_battle/scenes/arena_kuribo_1.tscn"
+run/main_scene="res://scenes/battle/arena.tscn"
 
 [autoload]
 

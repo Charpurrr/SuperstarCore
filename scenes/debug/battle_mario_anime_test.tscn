@@ -15,6 +15,6 @@ margin_top = 702.0
 margin_right = 918.0
 margin_bottom = 722.0
 text = "idle"
-items = [ "idle", null, false, 0, null, "idle_tired", null, false, 1, null, "thinking", null, false, 2, null, "thinking_tired", null, false, 3, null, "jump", null, false, 4, null ]
+items = [ "idle", null, false, 0, null, "idle_tired", null, false, 1, null, "thinking", null, false, 2, null, "thinking_tired", null, false, 3, null, "jump", null, false, 4, null, "hammer_fail", null, false, 5, null ]
 selected = 0
 script = ExtResource( 2 )
