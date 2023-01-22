@@ -60,6 +60,7 @@ animation = "0"
 [node name="Rating" parent="." instance=ExtResource( 5 )]
 unique_name_in_owner = false
 position = Vector2( 289, 100 )
+z_index = 1
 animation = "Good"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

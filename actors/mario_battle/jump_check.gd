@@ -50,32 +50,32 @@ func _process(_delta):
 				temp_rating = "OK"
 				actor.jump_rating = "OK"
 
-		if checking_good:
-			if Input.is_action_just_pressed("A"):
-				actor.jump_rated = true
-				actor.checking_jump_rating = false
-				check_timer = 0.0
-				temp_rating = "Good"
-				actor.jump_rating = "Good"
-
-			if check_timer >= 60:
-				checking_good = false
-
-		if checking_great:
-			if Input.is_action_just_pressed("A"):
-				actor.jump_rated = true
-				actor.checking_jump_rating = false
-				check_timer = 0.0
-				temp_rating = "Great"
-				actor.jump_rating = "Great"
-
-		if checking_excellent:
-			if Input.is_action_just_pressed("A"):
-				actor.jump_rated = true
-				actor.checking_jump_rating = false
-				check_timer = 0.0
-				temp_rating = "Excellent"
-				actor.jump_rating = "Excellent"
+#		if checking_good:
+#			if Input.is_action_just_pressed("A"):
+#				actor.jump_rated = true
+#				actor.checking_jump_rating = false
+#				check_timer = 0.0
+#				temp_rating = "Good"
+#				actor.jump_rating = "Good"
+#
+#			if check_timer >= 60:
+#				checking_good = false
+#
+#		if checking_great:
+#			if Input.is_action_just_pressed("A"):
+#				actor.jump_rated = true
+#				actor.checking_jump_rating = false
+#				check_timer = 0.0
+#				temp_rating = "Great"
+#				actor.jump_rating = "Great"
+#
+#		if checking_excellent:
+#			if Input.is_action_just_pressed("A"):
+#				actor.jump_rated = true
+#				actor.checking_jump_rating = false
+#				check_timer = 0.0
+#				temp_rating = "Excellent"
+#				actor.jump_rating = "Excellent"
 
 		# FALSE rating is handled in _on_AnimationPlayer_animation_finished()
 

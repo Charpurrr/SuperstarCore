@@ -95,7 +95,7 @@ position = Vector2( -100, 0 )
 position = Vector2( 0, -23 )
 
 [node name="JumpAttackFail" type="Node2D" parent="."]
-position = Vector2( -60, 0 )
+position = Vector2( -50, 0 )
 
 [node name="ActionIndicator" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -13 )
