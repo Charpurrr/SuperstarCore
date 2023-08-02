@@ -12,4 +12,4 @@ func _process(_delta):
 	if active_state == "selecting_action":
 		doll.play("thinking")
 
-		actor.action_commands.visible = true
+		actor.action_commands.active = true

@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.0")
 
 [autoload]
 
-Global="*res://utility/party_member_stats.tscn"
-AudioSingleton="*res://utility/audio.tscn"
+Stats="*res://utility/party_member_stats.tscn"
+Audio="*res://utility/audio.tscn"
 
 [debug]
 

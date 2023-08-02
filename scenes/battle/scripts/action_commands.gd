@@ -14,7 +14,7 @@ func _process(_delta):
 	visible = active
 
 	if active:
-		action_block.position = bp_coordinator.starting_pos[bp_coordinator.get_current_fighter()]
+		action_block.position = bp_coordinator.starting_pos[bp_coordinator.current_fighter_key]
 		action_block.animation = commands[viewed_command]
 
 		if Input.is_action_just_pressed("right"):

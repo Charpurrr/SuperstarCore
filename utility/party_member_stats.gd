@@ -7,7 +7,7 @@ var stats : Dictionary = {
 		"max_bp": 0,
 		"pow": 0,
 		"def": 0,
-		"speed": 0,
+		"speed": 15,
 		"stache": 0,
 	},
 
@@ -17,7 +17,7 @@ var stats : Dictionary = {
 		"max_bp": 0,
 		"pow": 0,
 		"def": 0,
-		"speed": 0,
+		"speed": 10,
 		"stache": 0,
 	},
 }

@@ -9,7 +9,7 @@ extends Node2D
 	luigi = true,
 } # What battle players are enabled
 
-var current_fighter : String # Member that is currently attacking
+var current_fighter_key : String # Member that is currently attacking
 
 var starting_pos : Dictionary = {
 	mario = null,
@@ -23,9 +23,7 @@ func _ready():
 
 	for key in enabled_battle_players:
 		if enabled_battle_players[key]:
-			current_fighter = key
-			break
-			# SAVE EDIT TO FIGURE OUT IF SPEED AFFECTS STARTING PLAYER
+			current_fighter_key = Stats
 
 
 func set_battle_player_pos(): # Set battle players' initial positions based on which ones are enabled
@@ -50,5 +48,5 @@ func free_unnecessary(): # Delete disabled battle players
 			battle_players[key].queue_free()
 
 
-func get_current_fighter() -> BattlePlayer: # Return the current battling player (fighter)
-	return battle_players[current_fighter]
+func get_current_fighter() -> BattlePlayer: # Return the current battling player node (fighter)
+	return battle_players[current_fighter_key]
