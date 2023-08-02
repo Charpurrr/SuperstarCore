@@ -6,8 +6,8 @@ func BS_play_jump():
 func BS_jump_fail():
 	$"%JumpFail".play()
 
-func BS_play_OK():
-	$"%OK".play()
+func BS_play_jump_OK():
+	$"%JOK".play()
 
-func BS_play_GOOD():
-	$"%GOOD".play()
+func BS_play_jump_GOOD():
+	$"%JGOOD".play()

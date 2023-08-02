@@ -1,6 +1,6 @@
 extends OptionButton
 
-onready var mario = $"../Mario"
+@onready var mario = $"../Mario"
 
 func _process(delta):
 	if get_selected_id() == 0:

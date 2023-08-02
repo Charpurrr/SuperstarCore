@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/good_attack.wav-279409a17815278596e707f6f26b0186.sample"
+type="AudioStreamWAV"
+uid="uid://drt36f77g5sdk"
+path="res://.godot/imported/good_attack.wav-279409a17815278596e707f6f26b0186.sample"
 
 [deps]
 
 source_file="res://actors/shared_battle/sfx/good_attack.wav"
-dest_files=[ "res://.import/good_attack.wav-279409a17815278596e707f6f26b0186.sample" ]
+dest_files=["res://.godot/imported/good_attack.wav-279409a17815278596e707f6f26b0186.sample"]
 
 [params]
 

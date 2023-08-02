@@ -1,66 +1,204 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=27 format=3 uid="uid://do7jwd240at80"]
 
-[ext_resource path="res://temp/temp.png" type="Texture" id=1]
-[ext_resource path="res://utility/enemy_setter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/mario_battle/mario.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/luigi_battle/luigi.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/battle/rating.tscn" type="PackedScene" id=5]
-[ext_resource path="res://utility/arena_properties.gd" type="Script" id=6]
+[ext_resource type="Texture2D" uid="uid://c6i5jjgatys64" path="res://temp/temp.png" id="1"]
+[ext_resource type="PackedScene" uid="uid://dakfjkptrpgob" path="res://actors/mario_battle/mario.tscn" id="3"]
+[ext_resource type="Script" path="res://scenes/battle/scripts/battle_player_coordinator.gd" id="3_dm7fe"]
+[ext_resource type="PackedScene" uid="uid://38fua51rulp8" path="res://actors/luigi_battle/luigi.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bpw6cqcqaodmv" path="res://scenes/battle/rating.tscn" id="5"]
+[ext_resource type="Script" path="res://utility/arena_properties.gd" id="6"]
+[ext_resource type="Script" path="res://scenes/battle/scripts/enemy_coordinator.gd" id="6_yeven"]
+[ext_resource type="Script" path="res://scenes/battle/scripts/action_commands.gd" id="7_ak2co"]
+[ext_resource type="Texture2D" uid="uid://w5qgbb3y5k1q" path="res://scenes/battle/assets/rating_excellent.png" id="7_fc8ip"]
+[ext_resource type="Texture2D" uid="uid://crlrvqrhbu4dh" path="res://scenes/battle/assets/rating_good.png" id="8_mhxig"]
+[ext_resource type="Texture2D" uid="uid://b7f2xnk8bwafn" path="res://scenes/battle/assets/selection_16.png" id="8_nwcjg"]
+[ext_resource type="Texture2D" uid="uid://baevbv1favrry" path="res://scenes/battle/assets/rating_great.png" id="9_g4iyn"]
+[ext_resource type="Texture2D" uid="uid://c2dxsqwubajnh" path="res://scenes/battle/assets/rating_ok.png" id="10_3p4eh"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 804, 864 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 804, 864)
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [  ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [],
 "loop": true,
-"name": "0",
+"name": &"0",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
 "loop": false,
-"name": "1",
+"name": &"1",
 "speed": 0.0
-} ]
+}]
+
+[sub_resource type="AtlasTexture" id="349"]
+atlas = ExtResource("8_nwcjg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="350"]
+atlas = ExtResource("8_nwcjg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="351"]
+atlas = ExtResource("8_nwcjg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="352"]
+atlas = ExtResource("8_nwcjg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="353"]
+atlas = ExtResource("8_nwcjg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="354"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("349")
+}],
+"loop": false,
+"name": &"bros",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("350")
+}],
+"loop": false,
+"name": &"hammer",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("351")
+}],
+"loop": false,
+"name": &"item",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("352")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("353")
+}],
+"loop": false,
+"name": &"run",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="522"]
+atlas = ExtResource("7_fc8ip")
+region = Rect2(0, 0, 256, 64)
+
+[sub_resource type="AtlasTexture" id="523"]
+atlas = ExtResource("8_mhxig")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="524"]
+atlas = ExtResource("9_g4iyn")
+region = Rect2(0, 0, 256, 64)
+
+[sub_resource type="AtlasTexture" id="525"]
+atlas = ExtResource("10_3p4eh")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="526"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("522")
+}],
+"loop": false,
+"name": &"Excellent",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"Fail",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("523")
+}],
+"loop": false,
+"name": &"Good",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("524")
+}],
+"loop": false,
+"name": &"Great",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("525")
+}],
+"loop": false,
+"name": &"OK",
+"speed": 0.0
+}]
 
 [node name="Arena" type="Node2D"]
-script = ExtResource( 6 )
-arena_type = 1
+script = ExtResource("6")
 
-[node name="Bros" type="Node2D" parent="."]
+[node name="Backdrop2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(768, -168)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("2")
+animation = &"0"
 
-[node name="Mario" parent="Bros" instance=ExtResource( 3 )]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 144)
+zoom = Vector2(3, 3)
+
+[node name="BattlePlayers" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_dm7fe")
+
+[node name="Mario" parent="BattlePlayers" instance=ExtResource("3")]
 z_index = 1
 
-[node name="Luigi" parent="Bros" instance=ExtResource( 4 )]
+[node name="Luigi" parent="BattlePlayers" instance=ExtResource("4")]
 unique_name_in_owner = true
 z_index = -1
 
-[node name="Enemies" parent="." instance=ExtResource( 2 )]
+[node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2( 408, 154 )
-enemy_ids = PoolStringArray( "dummy" )
+position = Vector2(408, 154)
+script = ExtResource("6_yeven")
+enemy_ids = PackedStringArray("dummy")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 289, 137 )
-current = true
-zoom = Vector2( 0.33, 0.33 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Backdrop2D" type="AnimatedSprite" parent="."]
+[node name="ActionCommands" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2( 768, -168 )
-scale = Vector2( 3, 3 )
-frames = SubResource( 2 )
-animation = "0"
+position = Vector2(0, -80)
+script = ExtResource("7_ak2co")
 
-[node name="Rating" parent="." instance=ExtResource( 5 )]
+[node name="Block" type="AnimatedSprite2D" parent="ActionCommands"]
+texture_filter = 1
+sprite_frames = SubResource("354")
+animation = &"jump"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Rating" parent="UI" instance=ExtResource("5")]
 unique_name_in_owner = false
-position = Vector2( 289, 100 )
 z_index = 1
-animation = "Good"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+position = Vector2(289, 100)
+sprite_frames = SubResource("526")
+animation = &"Good"

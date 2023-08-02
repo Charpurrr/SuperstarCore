@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/great_attack.wav-d8725ef398b3be7be01d106bda7c6080.sample"
+type="AudioStreamWAV"
+uid="uid://nqlgn525x5rw"
+path="res://.godot/imported/great_attack.wav-d8725ef398b3be7be01d106bda7c6080.sample"
 
 [deps]
 
 source_file="res://actors/shared_battle/sfx/great_attack.wav"
-dest_files=[ "res://.import/great_attack.wav-d8725ef398b3be7be01d106bda7c6080.sample" ]
+dest_files=["res://.godot/imported/great_attack.wav-d8725ef398b3be7be01d106bda7c6080.sample"]
 
 [params]
 

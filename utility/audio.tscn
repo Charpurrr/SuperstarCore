@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://utility/audio.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cav26s6ypxu47" path="res://actors/shared_battle/sfx/jump.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://bv60mns816kwm" path="res://actors/shared_battle/sfx/ok_attack.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://dstimhf0hknnh" path="res://actors/shared_battle/sfx/jump_fail_attack.wav" id="4"]
+[ext_resource type="AudioStream" uid="uid://drt36f77g5sdk" path="res://actors/shared_battle/sfx/good_attack.wav" id="5"]
+
+[node name="SoundControl" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="BattleSharedSFX" type="ResourcePreloader" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="BattleSharedSFX"]
+unique_name_in_owner = true
+stream = ExtResource( 2 )
+
+[node name="JOK" type="AudioStreamPlayer" parent="BattleSharedSFX"]
+unique_name_in_owner = true
+stream = ExtResource( 3 )
+
+[node name="JGOOD" type="AudioStreamPlayer" parent="BattleSharedSFX"]
+unique_name_in_owner = true
+stream = ExtResource( 5 )
+
+[node name="JumpFail" type="AudioStreamPlayer" parent="BattleSharedSFX"]
+unique_name_in_owner = true
+stream = ExtResource( 4 )

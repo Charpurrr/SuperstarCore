@@ -1,101 +1,118 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://dxlh7g4c7eh4o"]
 
-[ext_resource path="res://actors/kuribo_battle/battle_kuribo.gd" type="Script" id=1]
-[ext_resource path="res://actors/dummy_battle/dummy_kuribo.png" type="Texture" id=2]
-[ext_resource path="res://actors/kuribo_battle/hurt.png" type="Texture" id=3]
-[ext_resource path="res://temp/mario_temp.png" type="Texture" id=4]
-[ext_resource path="res://scenes/battle/action_indicator.tscn" type="PackedScene" id=5]
+[ext_resource type="Script" path="res://actors/kuribo_battle/battle_kuribo.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://8efevhmj862a" path="res://actors/dummy_battle/dummy_kuribo.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://wdv4jocfn4jw" path="res://actors/kuribo_battle/hurt.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bh8ur3w7uuk74" path="res://temp/mario_temp.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://rtnfkr35k8s0" path="res://scenes/battle/action_indicator.tscn" id="5"]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id="1"]
 
-[sub_resource type="AtlasTexture" id=115]
-atlas = ExtResource( 4 )
-region = Rect2( 25, 75, 25, 25 )
+[sub_resource type="AtlasTexture" id="115"]
+atlas = ExtResource("4")
+region = Rect2(25, 75, 25, 25)
 
-[sub_resource type="AtlasTexture" id=116]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 50, 50 )
+[sub_resource type="AtlasTexture" id="116"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id=235]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 50, 50 )
+[sub_resource type="AtlasTexture" id="235"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 50, 50)
 
-[sub_resource type="SpriteFrames" id=234]
-animations = [ {
-"frames": [ SubResource( 115 ) ],
+[sub_resource type="SpriteFrames" id="234"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("115")
+}],
 "loop": true,
-"name": "dead",
+"name": &"dead",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 116 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("116")
+}],
 "loop": true,
-"name": "hurt",
+"name": &"hurt",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 235 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("235")
+}],
 "loop": true,
-"name": "idle",
+"name": &"idle",
 "speed": 13.0
-} ]
+}]
 
-[sub_resource type="Animation" id=119]
+[sub_resource type="Animation" id="119"]
 resource_name = "hurt"
 length = 0.33
 step = 0.01
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.17, 0.33 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.17, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 0.5 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1), Vector2(1.5, 0.5), Vector2(1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.17, 0.33 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.17, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 6 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 0), Vector2(0, 6), Vector2(0, 0)]
 }
 
-[node name="Dummy" type="KinematicBody2D"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onyfa"]
+_data = {
+"hurt": SubResource("119")
+}
+
+[node name="Dummy" type="CharacterBody2D"]
 unique_name_in_owner = true
-script = ExtResource( 1 )
+texture_filter = 1
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -13 )
 z_index = 1
 z_as_relative = false
-shape = SubResource( 1 )
+position = Vector2(0, -13)
+shape = SubResource("1")
 
-[node name="Puppet" type="AnimatedSprite" parent="."]
-frames = SubResource( 234 )
-animation = "idle"
-offset = Vector2( 0, -25 )
+[node name="Puppet" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("234")
+animation = &"idle"
+offset = Vector2(0, -25)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Puppet"]
-anims/hurt = SubResource( 119 )
+libraries = {
+"": SubResource("AnimationLibrary_onyfa")
+}
 
 [node name="HammerAttackStart" type="Node2D" parent="."]
-position = Vector2( -40, 0 )
+position = Vector2(-40, 0)
 
 [node name="JumpAttackStart" type="Node2D" parent="."]
-position = Vector2( -100, 0 )
+position = Vector2(-100, 0)
 
 [node name="JumpAttackEnd" type="Node2D" parent="."]
-position = Vector2( 0, -23 )
+position = Vector2(0, -23)
 
 [node name="JumpAttackFail" type="Node2D" parent="."]
-position = Vector2( -50, 0 )
+position = Vector2(-50, 0)
 
-[node name="ActionIndicator" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -13 )
+[node name="ActionIndicator" parent="." instance=ExtResource("5")]
+position = Vector2(0, -13)

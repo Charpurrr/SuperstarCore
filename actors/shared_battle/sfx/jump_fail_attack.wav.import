@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/jump_fail_attack.wav-eba472c77e06e06da951af3f1b4442c3.sample"
+type="AudioStreamWAV"
+uid="uid://dstimhf0hknnh"
+path="res://.godot/imported/jump_fail_attack.wav-eba472c77e06e06da951af3f1b4442c3.sample"
 
 [deps]
 
 source_file="res://actors/shared_battle/sfx/jump_fail_attack.wav"
-dest_files=[ "res://.import/jump_fail_attack.wav-eba472c77e06e06da951af3f1b4442c3.sample" ]
+dest_files=["res://.godot/imported/jump_fail_attack.wav-eba472c77e06e06da951af3f1b4442c3.sample"]
 
 [params]
 
