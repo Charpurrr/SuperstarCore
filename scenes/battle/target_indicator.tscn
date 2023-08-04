@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://rtnfkr35k8s0"]
+
+[ext_resource type="Texture2D" uid="uid://o0q8vj5xctw1" path="res://scenes/battle/assets/attack_deselect.png" id="2_33bup"]
+[ext_resource type="Texture2D" uid="uid://dvfgmimx6pkgb" path="res://scenes/battle/assets/attack_select.png" id="3_c60fo"]
+[ext_resource type="Texture2D" uid="uid://dkqo8ki4tcqbm" path="res://scenes/battle/assets/attack_select_luigi.png" id="4_8ve7r"]
+[ext_resource type="Script" path="res://scenes/battle/scripts/target_indicator.gd" id="5_s00b5"]
+[ext_resource type="Texture2D" uid="uid://3xpgny7sviek" path="res://scenes/battle/assets/attack_select_mario.png" id="5_tmhdx"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2_33bup")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("2_33bup")
+region = Rect2(35, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pklps"]
+atlas = ExtResource("3_c60fo")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cedu0"]
+atlas = ExtResource("3_c60fo")
+region = Rect2(35, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("4_8ve7r")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("4_8ve7r")
+region = Rect2(42, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("5_tmhdx")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("5_tmhdx")
+region = Rect2(42, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}],
+"loop": true,
+"name": &"attack_deselect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pklps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cedu0")
+}],
+"loop": true,
+"name": &"attack_select",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"attack_select_luigi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}],
+"loop": true,
+"name": &"attack_select_mario",
+"speed": 5.0
+}]
+
+[node name="TargetIndicator" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("3")
+animation = &"attack_select"
+offset = Vector2(-16.5, -16.5)
+script = ExtResource("5_s00b5")

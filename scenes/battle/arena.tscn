@@ -1,9 +1,9 @@
 [gd_scene load_steps=27 format=3 uid="uid://do7jwd240at80"]
 
 [ext_resource type="Texture2D" uid="uid://c6i5jjgatys64" path="res://temp/temp.png" id="1"]
-[ext_resource type="PackedScene" uid="uid://dakfjkptrpgob" path="res://actors/mario_battle/mario.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dakfjkptrpgob" path="res://scenes/battle/actors/battle_players/mario_battle/mario.tscn" id="3"]
 [ext_resource type="Script" path="res://scenes/battle/scripts/battle_player_coordinator.gd" id="3_dm7fe"]
-[ext_resource type="PackedScene" uid="uid://38fua51rulp8" path="res://actors/luigi_battle/luigi.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://38fua51rulp8" path="res://scenes/battle/actors/battle_players/luigi_battle/luigi.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://bpw6cqcqaodmv" path="res://scenes/battle/rating.tscn" id="5"]
 [ext_resource type="Script" path="res://utility/arena_properties.gd" id="6"]
 [ext_resource type="Script" path="res://scenes/battle/scripts/enemy_coordinator.gd" id="6_yeven"]
@@ -164,13 +164,16 @@ sprite_frames = SubResource("2")
 animation = &"0"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(256, 144)
-zoom = Vector2(3, 3)
+position = Vector2(267, 136)
+zoom = Vector2(2.7, 2.7)
 
 [node name="BattlePlayers" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_dm7fe")
-enabled_battle_players = null
+enabled_battle_players = {
+"luigi": false,
+"mario": true
+}
 
 [node name="Mario" parent="BattlePlayers" instance=ExtResource("3")]
 z_index = 1
@@ -187,6 +190,7 @@ enemy_ids = PackedStringArray("dummy")
 
 [node name="ActionCommands" type="Node2D" parent="."]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(0, -80)
 script = ExtResource("7_ak2co")
 
@@ -203,3 +207,5 @@ z_index = 1
 position = Vector2(289, 100)
 sprite_frames = SubResource("526")
 animation = &"Good"
+
+[connection signal="animation_changed" from="ActionCommands/Block" to="ActionCommands" method="_on_block_animation_changed"]

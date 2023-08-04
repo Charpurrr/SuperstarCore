@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://actors/mario_battle/mario.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/debug/animation_debug_test.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://dakfjkptrpgob" path="res://actors/battle/mario_battle/mario.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/debug/animation_debug_test.gd" id="2"]
 
 [node name="Debug" type="Node2D"]
 

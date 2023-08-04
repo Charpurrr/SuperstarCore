@@ -1,4 +1,6 @@
+class_name AudioControl
 extends Control
+# Everything audio related
 
 func BS_play_jump():
 	$"%Jump".play()

@@ -1,12 +1,16 @@
+class_name EnemyCoordinator
 extends Node2D
+# Coordinates the enemies inside of this node
 
+const ENEMY_PATH : String = "res://scenes/battle/actors/enemies/"
 @onready var enemy_types : Dictionary = {
-	"dummy" : preload("res://actors/dummy_battle/dummy.tscn"),
-	"kuribo" : preload("res://actors/kuribo_battle/kuribo.tscn")
+	"dummy" : preload("%sdummy_battle/dummy.tscn" % ENEMY_PATH),
+	"kuribo" : preload("%skuribo_battle/kuribo.tscn" % ENEMY_PATH)
 } # What enemies exist
 
 @export var enemy_ids : PackedStringArray # What enemies are loaded in this arena
 var enemy_amt : int # Amount of enemies loaded in this arena
+var final_enemy : int # Final selected enemy to attack
 
 
 func _ready():
