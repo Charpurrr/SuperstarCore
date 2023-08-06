@@ -7,9 +7,9 @@ extends Node2D
 
 const LAYOUT_TABLE : LayoutTable = preload("res://scenes/battle/layouts/layout_table.tres")
 var loaded_layout : Node2D
+var enemy_amt : int # Amount of enemies in loaded layout
 
-var enemy_amt : int # Amount of enemies loaded in this arena
-var final_enemy : int # Final selected enemy to attack
+var final_enemy : BattleEnemy # Final selected enemy to attack
 
 var target_slot_frame : int # The current frame of a target slot's animation (for syncing)
 

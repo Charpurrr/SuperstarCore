@@ -60,20 +60,15 @@ func _process(_delta):
 
 
 func input(): # Handle input related stuff when called
-	if Input.is_action_pressed("right"):
-		cycle(1)
-
-	if Input.is_action_pressed("left"):
-		cycle(-1)
-
-	if Input.is_action_pressed("up"):
-		cycle(1)
-
-	if Input.is_action_pressed("down"):
-		cycle(-1)
+	if Input.get_axis("left", "right"):
+		cycle(Input.get_axis("left", "right"))
+	elif Input.get_axis("down", "up"):
+		cycle(Input.get_axis("down", "up"))
+	else:
+		cycle_timer = 0
 
 	if Input.is_action_just_pressed(bp_coordinator.get_current_fighter().action_button):
-		enemy_coordinator.final_enemy = selected_enemy_index
+		enemy_coordinator.final_enemy = enemies[selected_enemy_index]
 
 
 func set_slot_pos(): # Fill the target hologram positions array with all of the loaded holograms

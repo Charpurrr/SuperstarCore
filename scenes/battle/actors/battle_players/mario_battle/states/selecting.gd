@@ -37,3 +37,5 @@ func _process(_delta):
 				actor.action_commands.selected_command = ""
 				current_phase = "selecting_action"
 
+			if not actor.bp_coordinator.enemy_coordinator.final_enemy == null:
+				state_coordinator.active_state = "moving_to"

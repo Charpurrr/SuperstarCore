@@ -53,6 +53,3 @@ func cycle(direction): # Cycle between commands
 
 	init_select_timer = max(init_select_timer - 1, 0)
 
-
-func _on_block_animation_changed():
-	select_timer = SELECT_DELAY

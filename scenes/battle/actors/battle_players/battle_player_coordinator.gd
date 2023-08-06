@@ -2,6 +2,7 @@ class_name BattlePlayerCoordinator
 extends Node2D
 # Coordinates the battle players inside of this node
 
+@onready var enemy_coordinator : EnemyCoordinator = %Enemies
 @onready var battle_players : Dictionary = {
 	mario = $%Mario,
 	luigi = $%Luigi,

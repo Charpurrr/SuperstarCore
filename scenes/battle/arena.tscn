@@ -280,5 +280,3 @@ z_index = 1
 position = Vector2(289, 100)
 sprite_frames = SubResource("526")
 animation = &"Good"
-
-[connection signal="animation_changed" from="ActionCommands/Block" to="ActionCommands" method="_on_block_animation_changed"]
