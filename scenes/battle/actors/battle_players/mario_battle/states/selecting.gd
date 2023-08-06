@@ -20,22 +20,21 @@ func _process(_delta):
 	match current_phase:
 		PHASES[0]: # selecting_action
 			if state_coordinator.active_state == "idle":
-				state_coordinator.active_state = "selecting_action"
+				state_coordinator.active_state = current_phase
 
 			if Input.is_action_just_pressed(actor.action_button) and state_coordinator.active_state == "selecting_action":
 				state_coordinator.active_state = "select_action" # not the same as selecting_action
 
 			match selected_command:
-				"jump", "hammer", "bros":
-					current_phase = "selecting_target"
-				"run":
-					assert(false, "Ran away.")
+				"jump", "hammer":
+					current_phase = PHASES[1]
 
 		PHASES[1]: # selecting_target
 			if Input.is_action_just_pressed("shoulder_l") and state_coordinator.active_state == "selecting_target":
-				state_coordinator.active_state = "selecting_action"
+				state_coordinator.active_state = current_phase
 				actor.action_commands.selected_command = ""
-				current_phase = "selecting_action"
+				current_phase = PHASES[0]
 
 			if not actor.bp_coordinator.enemy_coordinator.final_enemy == null:
-				state_coordinator.active_state = "moving_to"
+				state_coordinator.active_state = "preparing_target"
+				current_phase = PHASES[0]

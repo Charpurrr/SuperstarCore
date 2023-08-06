@@ -95,7 +95,7 @@ func cycle(direction): # Cycle between enemies
 	if can_cycle():
 		selected_enemy_index = wrapi(selected_enemy_index + direction, 0, enemy_coordinator.enemy_amt)
 
-		MathUtility.tween_current_pos_to(self, target_slot_positions[selected_enemy_index], TWEEN_DELAY)
+		MathUtility.tween_current_pos_to(self, target_slot_positions[selected_enemy_index], TWEEN_DELAY, self)
 		cycle_timer = max(cycle_timer - 1, 0)
 		can_tween = false
 

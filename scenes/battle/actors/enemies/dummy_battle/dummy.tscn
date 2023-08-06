@@ -119,6 +119,7 @@ position = Vector2(0, -13)
 shape = SubResource("1")
 
 [node name="Doll" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 sprite_frames = SubResource("234")
 animation = &"idle"
 offset = Vector2(0, -25)
@@ -138,8 +139,8 @@ script = ExtResource("6_7wq8t")
 
 [node name="HammerAttackHologram" type="Sprite2D" parent="."]
 modulate = Color(1, 0.619608, 1, 0.290196)
-position = Vector2(-32, 0)
+position = Vector2(-24, 0)
 texture = ExtResource("6_b6c5n")
 centered = false
-offset = Vector2(-46, -44)
+offset = Vector2(-53, -43)
 script = ExtResource("8_bf3h0")

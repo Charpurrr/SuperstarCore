@@ -1,6 +1,6 @@
-[gd_scene load_steps=359 format=3 uid="uid://dakfjkptrpgob"]
+[gd_scene load_steps=360 format=3 uid="uid://doxswj1g13ik6"]
 
-[ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/b_player.gd" id="1_k8u1q"]
+[ext_resource type="Script" path="res://scenes/battle/actors/battle_players/battle_player.gd" id="1_o0o42"]
 [ext_resource type="Texture2D" uid="uid://dqsuc3osx4qlr" path="res://scenes/battle/actors/battle_players/mario_battle/anime/hammer_edge.png" id="2_bymld"]
 [ext_resource type="Texture2D" uid="uid://b7c0mkuxoq7r7" path="res://scenes/battle/actors/battle_players/mario_battle/anime/hammer_excellent.png" id="3_kwsae"]
 [ext_resource type="Texture2D" uid="uid://b23epnpowryfy" path="res://scenes/battle/actors/battle_players/mario_battle/anime/hammer_fail.png" id="4_x36v0"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/idle.gd" id="33_o1eur"]
 [ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/selecting.gd" id="34_j73uc"]
 [ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/moving.gd" id="35_i2unw"]
+[ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/hammering.gd" id="36_reib2"]
 
 [sub_resource type="AtlasTexture" id="502"]
 atlas = ExtResource("2_bymld")
@@ -2582,13 +2583,13 @@ _data = {
 [node name="Mario" type="CharacterBody2D"]
 unique_name_in_owner = true
 texture_filter = 1
-script = ExtResource("1_k8u1q")
+script = ExtResource("1_o0o42")
 
 [node name="Doll" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("49")
-animation = &"idle"
+animation = &"hammer_run"
 offset = Vector2(0, -50)
 
 [node name="HammerDisconnect" type="Sprite2D" parent="Doll"]
@@ -2623,9 +2624,11 @@ script = ExtResource("35_i2unw")
 [node name="Jumping" type="Node" parent="States/Attacking"]
 
 [node name="Hammering" type="Node" parent="States/Attacking"]
+script = ExtResource("36_reib2")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_pu0k7")
 
+[connection signal="animation_finished" from="Doll" to="States" method="_on_doll_animation_finished"]
 [connection signal="animation_finished" from="Doll/AnimationPlayer" to="States" method="_on_animation_player_animation_finished"]
