@@ -4,7 +4,7 @@ extends State
 
 var selected_command : String # See actor.action_commands.selected_command
 
-const PHASES : Array = ["selecting_action", "selecting_target",] # Phases of this state
+const PHASES : PackedStringArray = ["selecting_action", "selecting_target",] # Phases of this state
 var current_phase : String # Which phase this state is currently on
 
 

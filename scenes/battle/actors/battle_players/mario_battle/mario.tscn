@@ -2589,7 +2589,7 @@ script = ExtResource("1_o0o42")
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("49")
-animation = &"hammer_run"
+animation = &"hammer_windup"
 offset = Vector2(0, -50)
 
 [node name="HammerDisconnect" type="Sprite2D" parent="Doll"]
@@ -2631,4 +2631,5 @@ visible = false
 shape = SubResource("RectangleShape2D_pu0k7")
 
 [connection signal="animation_finished" from="Doll" to="States" method="_on_doll_animation_finished"]
+[connection signal="animation_finished" from="Doll" to="States/Attacking/Hammering" method="_on_doll_animation_finished"]
 [connection signal="animation_finished" from="Doll/AnimationPlayer" to="States" method="_on_animation_player_animation_finished"]

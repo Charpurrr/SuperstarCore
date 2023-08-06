@@ -6,7 +6,6 @@ var tweening : bool
 
 
 func _process(_delta):
-	print(state_coordinator.active_state)
 	match state_coordinator.active_state:
 		"j_moving_toward": # Moving toward the enemy for a jump attack
 			pass
@@ -20,4 +19,9 @@ func _process(_delta):
 
 func tween_finished(): # Called when a tween is finished interpolating
 	tweening = false
-	state_coordinator.active_state = "atk_hammering"
+
+	match state_coordinator.active_state:
+		"j_moving_toward":
+			state_coordinator.active_state = "atk_jumping"
+		"h_moving_toward":
+			state_coordinator.active_state = "atk_hammering"
