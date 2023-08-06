@@ -1,18 +1,22 @@
-[gd_scene load_steps=27 format=3 uid="uid://do7jwd240at80"]
+[gd_scene load_steps=38 format=3 uid="uid://do7jwd240at80"]
 
 [ext_resource type="Texture2D" uid="uid://c6i5jjgatys64" path="res://temp/temp.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://dakfjkptrpgob" path="res://scenes/battle/actors/battle_players/mario_battle/mario.tscn" id="3"]
-[ext_resource type="Script" path="res://scenes/battle/scripts/battle_player_coordinator.gd" id="3_dm7fe"]
+[ext_resource type="Script" path="res://scenes/battle/actors/battle_players/battle_player_coordinator.gd" id="3_fmluu"]
 [ext_resource type="PackedScene" uid="uid://38fua51rulp8" path="res://scenes/battle/actors/battle_players/luigi_battle/luigi.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://bpw6cqcqaodmv" path="res://scenes/battle/rating.tscn" id="5"]
 [ext_resource type="Script" path="res://utility/arena_properties.gd" id="6"]
-[ext_resource type="Script" path="res://scenes/battle/scripts/enemy_coordinator.gd" id="6_yeven"]
+[ext_resource type="Script" path="res://scenes/battle/actors/enemies/enemy_coordinator.gd" id="6_5vck3"]
 [ext_resource type="Script" path="res://scenes/battle/scripts/action_commands.gd" id="7_ak2co"]
 [ext_resource type="Texture2D" uid="uid://w5qgbb3y5k1q" path="res://scenes/battle/assets/rating_excellent.png" id="7_fc8ip"]
+[ext_resource type="Texture2D" uid="uid://dvfgmimx6pkgb" path="res://scenes/battle/assets/attack_select.png" id="8_3ds18"]
 [ext_resource type="Texture2D" uid="uid://crlrvqrhbu4dh" path="res://scenes/battle/assets/rating_good.png" id="8_mhxig"]
 [ext_resource type="Texture2D" uid="uid://b7f2xnk8bwafn" path="res://scenes/battle/assets/selection_16.png" id="8_nwcjg"]
 [ext_resource type="Texture2D" uid="uid://baevbv1favrry" path="res://scenes/battle/assets/rating_great.png" id="9_g4iyn"]
+[ext_resource type="Texture2D" uid="uid://dkqo8ki4tcqbm" path="res://scenes/battle/assets/attack_select_luigi.png" id="9_h8vmd"]
 [ext_resource type="Texture2D" uid="uid://c2dxsqwubajnh" path="res://scenes/battle/assets/rating_ok.png" id="10_3p4eh"]
+[ext_resource type="Texture2D" uid="uid://3xpgny7sviek" path="res://scenes/battle/assets/attack_select_mario.png" id="10_mtsl4"]
+[ext_resource type="Script" path="res://scenes/battle/scripts/target_indicator.gd" id="11_mgoam"]
 
 [sub_resource type="AtlasTexture" id="1"]
 atlas = ExtResource("1")
@@ -32,6 +36,66 @@ animations = [{
 "loop": false,
 "name": &"1",
 "speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pklps"]
+atlas = ExtResource("8_3ds18")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cedu0"]
+atlas = ExtResource("8_3ds18")
+region = Rect2(35, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc8gy"]
+atlas = ExtResource("9_h8vmd")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh8eg"]
+atlas = ExtResource("9_h8vmd")
+region = Rect2(42, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xj1o"]
+atlas = ExtResource("10_mtsl4")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf3yh"]
+atlas = ExtResource("10_mtsl4")
+region = Rect2(42, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pklps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cedu0")
+}],
+"loop": true,
+"name": &"attack_select",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc8gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh8eg")
+}],
+"loop": true,
+"name": &"attack_select_luigi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xj1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf3yh")
+}],
+"loop": true,
+"name": &"attack_select_mario",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="349"]
@@ -164,12 +228,12 @@ sprite_frames = SubResource("2")
 animation = &"0"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(267, 136)
+position = Vector2(263, 146)
 zoom = Vector2(2.7, 2.7)
 
 [node name="BattlePlayers" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_dm7fe")
+script = ExtResource("3_fmluu")
 enabled_battle_players = {
 "luigi": false,
 "mario": true
@@ -185,8 +249,17 @@ z_index = -1
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(408, 154)
-script = ExtResource("6_yeven")
-enemy_ids = PackedStringArray("dummy")
+script = ExtResource("6_5vck3")
+encounter_name = &"dummy"
+encounter_variant = 2
+
+[node name="TargetIndicator" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("3")
+animation = &"attack_select"
+centered = false
+offset = Vector2(-11, -28)
+script = ExtResource("11_mgoam")
 
 [node name="ActionCommands" type="Node2D" parent="."]
 unique_name_in_owner = true

@@ -2,7 +2,7 @@ class_name BattlePlayerStats
 extends Node
 # The stats for every possible battle player
 
-var stats : Dictionary = {
+static var stats : Dictionary = {
 	"mario": 
 	{
 		"level": 1,

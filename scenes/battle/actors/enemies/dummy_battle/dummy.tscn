@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv4r4gb3odaq"]
+[gd_scene load_steps=19 format=3 uid="uid://dv4r4gb3odaq"]
 
 [ext_resource type="Script" path="res://scenes/battle/actors/enemies/b_enemy.gd" id="1_12hxh"]
 [ext_resource type="Texture2D" uid="uid://bh8ur3w7uuk74" path="res://temp/mario_temp.png" id="2_a1qda"]
 [ext_resource type="Texture2D" uid="uid://wdv4jocfn4jw" path="res://scenes/battle/actors/enemies/kuribo_battle/hurt.png" id="3_xfo2q"]
 [ext_resource type="Texture2D" uid="uid://8efevhmj862a" path="res://scenes/battle/actors/enemies/dummy_battle/dummy_kuribo.png" id="4_15lab"]
-[ext_resource type="PackedScene" uid="uid://rtnfkr35k8s0" path="res://scenes/battle/target_indicator.tscn" id="5_c81k3"]
+[ext_resource type="Texture2D" uid="uid://o0q8vj5xctw1" path="res://scenes/battle/assets/attack_deselect.png" id="5_nb0ri"]
+[ext_resource type="Script" path="res://scenes/battle/actors/enemies/target_slot.gd" id="6_7wq8t"]
 [ext_resource type="Texture2D" uid="uid://bpc4g6quutnjk" path="res://scenes/debug/hammerstartpos.png" id="6_b6c5n"]
+[ext_resource type="Script" path="res://scenes/battle/actors/enemies/hammer_hologram.gd" id="8_bf3h0"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 
@@ -82,10 +84,32 @@ _data = {
 "hurt": SubResource("119")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_juhaj"]
+atlas = ExtResource("5_nb0ri")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olvta"]
+atlas = ExtResource("5_nb0ri")
+region = Rect2(35, 0, 33, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftnyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juhaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olvta")
+}],
+"loop": true,
+"name": &"attack_deselect",
+"speed": 5.0
+}]
+
 [node name="Dummy" type="CharacterBody2D"]
-unique_name_in_owner = true
 texture_filter = 1
 script = ExtResource("1_12hxh")
+enemy_name = &"dummy"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
@@ -105,14 +129,17 @@ libraries = {
 "": SubResource("AnimationLibrary_onyfa")
 }
 
-[node name="TargetIndicator" parent="." instance=ExtResource("5_c81k3")]
-unique_name_in_owner = true
-position = Vector2(0, -13)
+[node name="TargetIndicatorSlot" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28, -46)
+sprite_frames = SubResource("SpriteFrames_ftnyy")
+animation = &"attack_deselect"
+centered = false
+script = ExtResource("6_7wq8t")
 
 [node name="HammerAttackHologram" type="Sprite2D" parent="."]
-unique_name_in_owner = true
 modulate = Color(1, 0.619608, 1, 0.290196)
 position = Vector2(-32, 0)
 texture = ExtResource("6_b6c5n")
 centered = false
 offset = Vector2(-46, -44)
+script = ExtResource("8_bf3h0")

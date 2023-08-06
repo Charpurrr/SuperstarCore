@@ -58,7 +58,7 @@ func set_starter_fighter(): # Set which battle player attacks initially dependin
 
 	for key in enabled_battle_players:
 		if enabled_battle_players[key]:
-			var speed = Stats.stats[key].spd
+			var speed = BattlePlayerStats.stats[key].spd
 
 			if speed > highest_speed:
 				highest_speed = speed
@@ -71,7 +71,7 @@ func get_current_fighter() -> BattlePlayer: # Return the current battling player
 	return battle_players[current_fighter_key]
 
 
-func get_key(node: BattlePlayer) -> String:
+func get_key(node: BattlePlayer) -> String: # Get the key for passed battle player
 	for key in battle_players:
 		if battle_players[key] == node:
 			return key
@@ -79,6 +79,6 @@ func get_key(node: BattlePlayer) -> String:
 	return ""
 
 
-func get_key_wait(node: BattlePlayer) -> String:
+func get_key_wait(node: BattlePlayer) -> String: # get_key() but it waits until loaded
 	await ready
 	return get_key(node)

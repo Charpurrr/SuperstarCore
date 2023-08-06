@@ -41,15 +41,16 @@ func _process(_delta):
 			selected_command = commands[viewed_command]
 
 
-func can_cycle() -> bool: # Check if you're able to cycle between commands yet
+func can_cycle() -> bool: # Check if you're able to cycle between commands
 	return (select_timer == 0 and 
 	(init_select_timer == 0 or init_select_timer == INIT_SELECT_DELAY))
 
 
-func cycle(direction):
+func cycle(direction): # Cycle between commands
 	if can_cycle():
 		viewed_command = wrapi(viewed_command + direction, 0, commands.size())
 		select_timer = SELECT_DELAY
+
 	init_select_timer = max(init_select_timer - 1, 0)
 
 

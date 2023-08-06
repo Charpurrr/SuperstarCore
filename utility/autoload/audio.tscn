@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://utility/audio.gd" id="1"]
+[ext_resource type="Script" path="res://utility/autoload/audio.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://cav26s6ypxu47" path="res://scenes/battle/actors/sfx/battle_players/jump.wav" id="2"]
 [ext_resource type="AudioStream" uid="uid://bv60mns816kwm" path="res://scenes/battle/actors/sfx/battle_players/ok_attack.wav" id="3"]
 [ext_resource type="AudioStream" uid="uid://dstimhf0hknnh" path="res://scenes/battle/actors/sfx/battle_players/jump_fail_attack.wav" id="4"]

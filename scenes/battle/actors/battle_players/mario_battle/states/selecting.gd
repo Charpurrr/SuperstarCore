@@ -13,7 +13,6 @@ func _ready():
 
 
 func _process(_delta):
-	print(selected_command)
 	if not actor.is_fighter: return
 
 	selected_command = actor.action_commands.selected_command
