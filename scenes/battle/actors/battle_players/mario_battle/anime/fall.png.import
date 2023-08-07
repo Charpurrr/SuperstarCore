@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d34u7vyehywjb"
-path="res://.godot/imported/in_style.png-838eac97be779b54b0d9a0ada0717588.ctex"
+uid="uid://xs140mgtnuj8"
+path="res://.godot/imported/fall.png-ed6412b01ae17fd1d7e3d45a59c6316d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/in_style.png"
-dest_files=["res://.godot/imported/in_style.png-838eac97be779b54b0d9a0ada0717588.ctex"]
+source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/fall.png"
+dest_files=["res://.godot/imported/fall.png-ed6412b01ae17fd1d7e3d45a59c6316d.ctex"]
 
 [params]
 

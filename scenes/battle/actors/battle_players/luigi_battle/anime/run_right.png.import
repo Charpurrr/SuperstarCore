@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwdtccil6ud8u"
-path="res://.godot/imported/jump_successful.png-1eae89f63a252be5c51573889c1bee81.ctex"
+uid="uid://bfh0q3qqswwcv"
+path="res://.godot/imported/run_right.png-509b3a27d0dda35d7851ef5240f24698.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful.png"
-dest_files=["res://.godot/imported/jump_successful.png-1eae89f63a252be5c51573889c1bee81.ctex"]
+source_file="res://scenes/battle/actors/battle_players/luigi_battle/anime/run_right.png"
+dest_files=["res://.godot/imported/run_right.png-509b3a27d0dda35d7851ef5240f24698.ctex"]
 
 [params]
 

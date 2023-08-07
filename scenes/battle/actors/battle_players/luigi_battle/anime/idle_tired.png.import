@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwdtccil6ud8u"
-path="res://.godot/imported/jump_successful.png-1eae89f63a252be5c51573889c1bee81.ctex"
+uid="uid://b2n6c8bexvbue"
+path="res://.godot/imported/idle_tired.png-5351bf7190547c9018e24415b93f4c55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful.png"
-dest_files=["res://.godot/imported/jump_successful.png-1eae89f63a252be5c51573889c1bee81.ctex"]
+source_file="res://scenes/battle/actors/battle_players/luigi_battle/anime/idle_tired.png"
+dest_files=["res://.godot/imported/idle_tired.png-5351bf7190547c9018e24415b93f4c55.ctex"]
 
 [params]
 

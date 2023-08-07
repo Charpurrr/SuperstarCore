@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2y318q78bl2w"
-path="res://.godot/imported/hammer_disconnect.png-5d406d29e562e63b8af1c7abf4ec705b.ctex"
+uid="uid://su1acmspulfa"
+path="res://.godot/imported/jump_check.png-d45b63c72be1a37febf325ea32b95703.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/hammer_disconnect.png"
-dest_files=["res://.godot/imported/hammer_disconnect.png-5d406d29e562e63b8af1c7abf4ec705b.ctex"]
+source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_check.png"
+dest_files=["res://.godot/imported/jump_check.png-d45b63c72be1a37febf325ea32b95703.ctex"]
 
 [params]
 

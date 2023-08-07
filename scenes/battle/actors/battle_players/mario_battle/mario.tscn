@@ -13,24 +13,24 @@
 [ext_resource type="Texture2D" uid="uid://c74iiijgtteyp" path="res://scenes/battle/actors/battle_players/mario_battle/anime/hammer_windup.png" id="11_md23y"]
 [ext_resource type="Texture2D" uid="uid://5jwe883i05w5" path="res://scenes/battle/actors/battle_players/mario_battle/anime/idle.png" id="12_p5xnf"]
 [ext_resource type="Texture2D" uid="uid://br1my5q0edwuu" path="res://scenes/battle/actors/battle_players/mario_battle/anime/idle_tired.png" id="13_n7jki"]
-[ext_resource type="Texture2D" uid="uid://d34u7vyehywjb" path="res://scenes/battle/actors/battle_players/mario_battle/anime/in_style.png" id="14_at78r"]
+[ext_resource type="Texture2D" uid="uid://d34u7vyehywjb" path="res://scenes/battle/actors/battle_players/mario_battle/anime/stylish.png" id="14_8egcw"]
 [ext_resource type="Texture2D" uid="uid://cqdsnvg8qwvt7" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump.png" id="15_ij6xw"]
-[ext_resource type="Texture2D" uid="uid://su1acmspulfa" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful.png" id="16_j7n1p"]
-[ext_resource type="Texture2D" uid="uid://0nrapneanwwp" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful_fail.png" id="17_mpoly"]
+[ext_resource type="Texture2D" uid="uid://cwdtccil6ud8u" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful.png" id="16_j7n1p"]
+[ext_resource type="Texture2D" uid="uid://su1acmspulfa" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_check.png" id="16_praae"]
+[ext_resource type="Texture2D" uid="uid://0nrapneanwwp" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_check_dx.png" id="17_lt2ad"]
 [ext_resource type="Texture2D" uid="uid://cemi1ghoe7wyq" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_fail.png" id="18_u5cd0"]
 [ext_resource type="Texture2D" uid="uid://cngseidb3ljmn" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_fail_land.png" id="19_2vxt0"]
-[ext_resource type="Texture2D" uid="uid://xs140mgtnuj8" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_fall.png" id="20_jcnme"]
+[ext_resource type="Texture2D" uid="uid://xs140mgtnuj8" path="res://scenes/battle/actors/battle_players/mario_battle/anime/fall.png" id="20_lhpcq"]
 [ext_resource type="Texture2D" uid="uid://b5btbr0jkxhap" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_land.png" id="21_bj4yd"]
 [ext_resource type="Texture2D" uid="uid://co0826i5t6m16" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_excellent_recover.png" id="22_57gxv"]
-[ext_resource type="Texture2D" uid="uid://cwdtccil6ud8u" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful_air.png" id="23_bunh5"]
-[ext_resource type="Texture2D" uid="uid://d4a3duo5o533r" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful_air_land.png" id="24_cntad"]
+[ext_resource type="Texture2D" uid="uid://d4a3duo5o533r" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful_fall.png" id="24_bvxts"]
 [ext_resource type="Texture2D" uid="uid://bkwssbe017wpq" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_excellent.png" id="25_ec8tm"]
 [ext_resource type="Texture2D" uid="uid://v3rb3haod64j" path="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_windup.png" id="26_jkyxn"]
 [ext_resource type="Texture2D" uid="uid://dluabaodata6e" path="res://scenes/battle/actors/battle_players/mario_battle/anime/run_left.png" id="27_qm4fh"]
 [ext_resource type="Texture2D" uid="uid://776ful06ahcj" path="res://scenes/battle/actors/battle_players/mario_battle/anime/run_right.png" id="28_bh3t0"]
 [ext_resource type="Texture2D" uid="uid://cqdcyst1c3d2g" path="res://scenes/battle/actors/battle_players/mario_battle/anime/thinking.png" id="29_w7i0c"]
 [ext_resource type="Texture2D" uid="uid://bv2tu0lls8hud" path="res://scenes/battle/actors/battle_players/mario_battle/anime/thinking_tired.png" id="30_eqlkw"]
-[ext_resource type="Texture2D" uid="uid://d2y318q78bl2w" path="res://scenes/battle/actors/battle_players/mario_battle/anime/hammer_disconnect.png" id="31_0p6ak"]
+[ext_resource type="Texture2D" uid="uid://d2y318q78bl2w" path="res://scenes/battle/actors/battle_players/hammer_disconnect.png" id="31_fsq57"]
 [ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/bp_state_coordinator.gd" id="32_5v7yh"]
 [ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/idle.gd" id="33_o1eur"]
 [ext_resource type="Script" path="res://scenes/battle/actors/battle_players/mario_battle/states/selecting.gd" id="34_j73uc"]
@@ -681,84 +681,48 @@ region = Rect2(510, 408, 100, 100)
 atlas = ExtResource("13_n7jki")
 region = Rect2(0, 510, 100, 100)
 
-[sub_resource type="AtlasTexture" id="416"]
-atlas = ExtResource("14_at78r")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="417"]
-atlas = ExtResource("14_at78r")
-region = Rect2(102, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="418"]
-atlas = ExtResource("14_at78r")
-region = Rect2(204, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="419"]
-atlas = ExtResource("14_at78r")
-region = Rect2(0, 102, 100, 100)
-
-[sub_resource type="AtlasTexture" id="420"]
-atlas = ExtResource("14_at78r")
-region = Rect2(102, 102, 100, 100)
-
-[sub_resource type="AtlasTexture" id="421"]
-atlas = ExtResource("14_at78r")
-region = Rect2(204, 102, 100, 100)
-
-[sub_resource type="AtlasTexture" id="422"]
-atlas = ExtResource("14_at78r")
-region = Rect2(0, 204, 100, 100)
-
-[sub_resource type="AtlasTexture" id="423"]
-atlas = ExtResource("14_at78r")
-region = Rect2(102, 204, 100, 100)
-
-[sub_resource type="AtlasTexture" id="424"]
-atlas = ExtResource("14_at78r")
-region = Rect2(204, 204, 100, 100)
-
 [sub_resource type="AtlasTexture" id="77"]
 atlas = ExtResource("15_ij6xw")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="299"]
-atlas = ExtResource("16_j7n1p")
+atlas = ExtResource("16_praae")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="300"]
-atlas = ExtResource("16_j7n1p")
+atlas = ExtResource("16_praae")
 region = Rect2(102, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="301"]
-atlas = ExtResource("16_j7n1p")
+atlas = ExtResource("16_praae")
 region = Rect2(204, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="302"]
-atlas = ExtResource("16_j7n1p")
+atlas = ExtResource("16_praae")
 region = Rect2(0, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="303"]
-atlas = ExtResource("16_j7n1p")
+atlas = ExtResource("16_praae")
 region = Rect2(102, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="327"]
-atlas = ExtResource("17_mpoly")
+atlas = ExtResource("17_lt2ad")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="328"]
-atlas = ExtResource("17_mpoly")
+atlas = ExtResource("17_lt2ad")
 region = Rect2(102, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="329"]
-atlas = ExtResource("17_mpoly")
+atlas = ExtResource("17_lt2ad")
 region = Rect2(204, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="330"]
-atlas = ExtResource("17_mpoly")
+atlas = ExtResource("17_lt2ad")
 region = Rect2(0, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="331"]
-atlas = ExtResource("17_mpoly")
+atlas = ExtResource("17_lt2ad")
 region = Rect2(102, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="284"]
@@ -790,19 +754,19 @@ atlas = ExtResource("19_2vxt0")
 region = Rect2(0, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="291"]
-atlas = ExtResource("20_jcnme")
+atlas = ExtResource("20_lhpcq")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="292"]
-atlas = ExtResource("20_jcnme")
+atlas = ExtResource("20_lhpcq")
 region = Rect2(102, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="293"]
-atlas = ExtResource("20_jcnme")
+atlas = ExtResource("20_lhpcq")
 region = Rect2(0, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="294"]
-atlas = ExtResource("20_jcnme")
+atlas = ExtResource("20_lhpcq")
 region = Rect2(102, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="295"]
@@ -850,95 +814,95 @@ atlas = ExtResource("22_57gxv")
 region = Rect2(204, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="304"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="305"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(102, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="306"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(204, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="307"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(306, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="308"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(0, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="309"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(102, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="310"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(204, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="311"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(306, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="312"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(0, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="313"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(102, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="314"]
-atlas = ExtResource("23_bunh5")
+atlas = ExtResource("16_j7n1p")
 region = Rect2(204, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="315"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="316"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(102, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="317"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(204, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="318"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(306, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="319"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(0, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="320"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(102, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="321"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(204, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="322"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(306, 102, 100, 100)
 
 [sub_resource type="AtlasTexture" id="323"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(0, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="324"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(102, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="325"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(204, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="326"]
-atlas = ExtResource("24_cntad")
+atlas = ExtResource("24_bvxts")
 region = Rect2(306, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="279"]
@@ -1064,6 +1028,42 @@ region = Rect2(204, 204, 100, 100)
 [sub_resource type="AtlasTexture" id="345"]
 atlas = ExtResource("28_bh3t0")
 region = Rect2(306, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="416"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="417"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(102, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="418"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(204, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="419"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(0, 102, 100, 100)
+
+[sub_resource type="AtlasTexture" id="420"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(102, 102, 100, 100)
+
+[sub_resource type="AtlasTexture" id="421"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(204, 102, 100, 100)
+
+[sub_resource type="AtlasTexture" id="422"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(0, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="423"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(102, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="424"]
+atlas = ExtResource("14_8egcw")
+region = Rect2(204, 204, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge7x1"]
 atlas = ExtResource("29_w7i0c")
@@ -1895,38 +1895,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("416")
-}, {
-"duration": 1.0,
-"texture": SubResource("417")
-}, {
-"duration": 1.0,
-"texture": SubResource("418")
-}, {
-"duration": 1.0,
-"texture": SubResource("419")
-}, {
-"duration": 1.0,
-"texture": SubResource("420")
-}, {
-"duration": 1.0,
-"texture": SubResource("421")
-}, {
-"duration": 1.0,
-"texture": SubResource("422")
-}, {
-"duration": 1.0,
-"texture": SubResource("423")
-}, {
-"duration": 1.0,
-"texture": SubResource("424")
-}],
-"loop": true,
-"name": &"in_style",
-"speed": 13.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("77")
 }],
 "loop": false,
@@ -2250,6 +2218,38 @@ animations = [{
 "loop": true,
 "name": &"run_right",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("416")
+}, {
+"duration": 1.0,
+"texture": SubResource("417")
+}, {
+"duration": 1.0,
+"texture": SubResource("418")
+}, {
+"duration": 1.0,
+"texture": SubResource("419")
+}, {
+"duration": 1.0,
+"texture": SubResource("420")
+}, {
+"duration": 1.0,
+"texture": SubResource("421")
+}, {
+"duration": 1.0,
+"texture": SubResource("422")
+}, {
+"duration": 1.0,
+"texture": SubResource("423")
+}, {
+"duration": 1.0,
+"texture": SubResource("424")
+}],
+"loop": true,
+"name": &"stylish",
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2589,7 +2589,7 @@ script = ExtResource("1_o0o42")
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("49")
-animation = &"hammer_windup"
+animation = &"stylish"
 offset = Vector2(0, -50)
 
 [node name="HammerDisconnect" type="Sprite2D" parent="Doll"]
@@ -2598,7 +2598,7 @@ visible = false
 texture_filter = 1
 position = Vector2(-41, -22.0002)
 rotation = -3.14159
-texture = ExtResource("31_0p6ak")
+texture = ExtResource("31_fsq57")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Doll"]
 unique_name_in_owner = true

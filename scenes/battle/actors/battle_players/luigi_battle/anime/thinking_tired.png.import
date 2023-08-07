@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwdtccil6ud8u"
-path="res://.godot/imported/jump_successful.png-1eae89f63a252be5c51573889c1bee81.ctex"
+uid="uid://dssn8m18bhqau"
+path="res://.godot/imported/thinking_tired.png-860176c111dfd62e9e3fd8058b7b7bee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_successful.png"
-dest_files=["res://.godot/imported/jump_successful.png-1eae89f63a252be5c51573889c1bee81.ctex"]
+source_file="res://scenes/battle/actors/battle_players/luigi_battle/anime/thinking_tired.png"
+dest_files=["res://.godot/imported/thinking_tired.png-860176c111dfd62e9e3fd8058b7b7bee.ctex"]
 
 [params]
 

@@ -21,7 +21,7 @@ static var stats : Dictionary = {
 		"bp": 10,
 		"pow": 11,
 		"def": 9,
-		"spd": 9,
+		"spd": 100,
 		"sta": 5,
 	},
 } # The default stats used in MARIO & LUIGI: SUPERSTAR SAGA (3DS)

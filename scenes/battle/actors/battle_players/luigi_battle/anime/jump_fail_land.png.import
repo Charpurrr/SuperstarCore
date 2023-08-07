@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xs140mgtnuj8"
-path="res://.godot/imported/jump_fall.png-3ffa138b5503f3c15cd250f19ffe4c5c.ctex"
+uid="uid://d3pmfqjv5u32w"
+path="res://.godot/imported/jump_fail_land.png-f892b79cf2fc8019eeb719d5e4b913c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/battle/actors/battle_players/mario_battle/anime/jump_fall.png"
-dest_files=["res://.godot/imported/jump_fall.png-3ffa138b5503f3c15cd250f19ffe4c5c.ctex"]
+source_file="res://scenes/battle/actors/battle_players/luigi_battle/anime/jump_fail_land.png"
+dest_files=["res://.godot/imported/jump_fail_land.png-f892b79cf2fc8019eeb719d5e4b913c3.ctex"]
 
 [params]
 
