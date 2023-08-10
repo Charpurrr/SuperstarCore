@@ -234,6 +234,10 @@ zoom = Vector2(2.7, 2.7)
 [node name="BattlePlayers" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_fmluu")
+enabled_battle_players = {
+"luigi": true,
+"mario": false
+}
 
 [node name="Mario" parent="BattlePlayers" instance=ExtResource("3")]
 z_index = 1

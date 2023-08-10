@@ -21,7 +21,6 @@ var input : Input
 
 
 func _process(_delta):
-	print(bp_coordinator.get_current_fighter())
 	visible = active
 
 	if active:

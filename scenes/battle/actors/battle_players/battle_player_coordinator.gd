@@ -33,19 +33,24 @@ func _ready():
 
 
 func set_battle_player_pos(): # Set battle players' initial positions based on which ones are enabled
-	if enabled_battle_players["mario"] and enabled_battle_players["luigi"]: # Both Bros.
-		battle_players["mario"].position = Vector2(150, 100)
-		battle_players["luigi"].position = Vector2(150, 200)
-	elif enabled_battle_players["mario"] and not enabled_battle_players["luigi"]: # Solo Mario
-		battle_players["mario"].position = Vector2(150, 175)
-	elif not enabled_battle_players["mario"] and enabled_battle_players["luigi"]: # Solo Luigi
-		battle_players["luigi"].position = Vector2(150, 175)
-	else: # NOONE?? ENABLE SOMEONE??
-		@warning_ignore("assert_always_false")
-		assert(false, "No battle players present.")
+	var enabled_battle_players_count : int = 0
 
-	starting_pos["mario"] = battle_players["mario"].position
-	starting_pos["luigi"] = battle_players["luigi"].position
+	for battle_player in enabled_battle_players:
+		if enabled_battle_players[battle_player]:
+			starting_pos[battle_player] = battle_players[battle_player].position
+			enabled_battle_players_count += 1
+
+	match enabled_battle_players_count:
+		0: # Noone enabled
+			@warning_ignore("assert_always_false")
+			assert(false, "No battle players present.")
+		1: # One battle player enabled
+			for battle_player in enabled_battle_players:
+				battle_players[battle_player].position = Vector2(150, 175)
+				break
+		2: # 2 battle players enabled
+			battle_players["mario"].position = Vector2(150, 100)
+			battle_players["luigi"].position = Vector2(150, 200)
 
 
 func free_unnecessary(): # Delete disabled battle players
