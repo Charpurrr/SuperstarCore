@@ -8,18 +8,19 @@ extends Node2D
 	luigi = $%Luigi,
 } # What battle players exist
 
-var bp_associated_action : Dictionary = {
-	mario = "A",
-	luigi = "B",
-} # The associated action button for each battle player
-
 @export var enabled_battle_players : Dictionary = {
 	mario = true,
 	luigi = true,
 } # What battle players are enabled
 
+var bp_associated_action : Dictionary = {
+	mario = "A",
+	luigi = "B",
+} # The associated action button for each battle player
+
 var current_fighter_key : String # Member that is currently attacking
 
+var starting_pos_order : Array = ["mario", "luigi",] # Priority order 
 var starting_pos : Dictionary = {
 	mario = null,
 	luigi = null,
@@ -49,8 +50,9 @@ func set_battle_player_pos(): # Set battle players' initial positions based on w
 				battle_players[battle_player].position = Vector2(150, 175)
 				break
 		2: # 2 battle players enabled
-			battle_players["mario"].position = Vector2(150, 100)
-			battle_players["luigi"].position = Vector2(150, 200)
+			battle_players[starting_pos_order[0]].position = Vector2(150, 100)
+			battle_players[starting_pos_order[1]].position = Vector2(150, 200)
+			# fails if 3 bps exist (FIX TORMROWW)
 
 
 func free_unnecessary(): # Delete disabled battle players
