@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LayoutTable" load_steps=5 format=3 uid="uid://c1wqmls2vk576"]
+
+[ext_resource type="Script" path="res://actors/battle/layouts/layout_table.gd" id="1_ckjcc"]
+[ext_resource type="PackedScene" uid="uid://clh7fohov6cjx" path="res://actors/battle/layouts/dummy/dummy_x1.tscn" id="1_quwm0"]
+[ext_resource type="PackedScene" uid="uid://da0w0a40cj67d" path="res://actors/battle/layouts/dummy/dummy_x2.tscn" id="2_0krr8"]
+[ext_resource type="PackedScene" uid="uid://usp8l51vee0c" path="res://actors/battle/layouts/dummy/dummy_x3.tscn" id="3_hispg"]
+
+
+[resource]
+script = ExtResource("1_ckjcc")
+layout_table = {
+"dummy": [ExtResource("1_quwm0"), ExtResource("2_0krr8"), ExtResource("3_hispg")]
+}
