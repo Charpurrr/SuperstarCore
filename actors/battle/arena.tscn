@@ -1,12 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://do7jwd240at80"]
+[gd_scene load_steps=38 format=3 uid="uid://do7jwd240at80"]
 
 [ext_resource type="Texture2D" uid="uid://c6i5jjgatys64" path="res://temp/temp.png" id="1"]
-[ext_resource type="Script" path="res://actors/battle/bg_applier.gd" id="2_b48wl"]
 [ext_resource type="PackedScene" uid="uid://doxswj1g13ik6" path="res://actors/battle/actors/battle_players/mario_battle/mario.tscn" id="3"]
 [ext_resource type="Script" path="res://actors/battle/actors/battle_players/battle_player_coordinator.gd" id="3_fmluu"]
 [ext_resource type="PackedScene" uid="uid://38fua51rulp8" path="res://actors/battle/actors/battle_players/luigi_battle/luigi.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://bpw6cqcqaodmv" path="res://actors/battle/rating.tscn" id="5"]
-[ext_resource type="Script" path="res://actors/battle/arena_properties.gd" id="6"]
+[ext_resource type="Script" path="res://utility/arena_properties.gd" id="6"]
 [ext_resource type="Script" path="res://actors/battle/actors/enemies/enemy_coordinator.gd" id="6_5vck3"]
 [ext_resource type="Script" path="res://actors/battle/scripts/action_commands.gd" id="7_ak2co"]
 [ext_resource type="Texture2D" uid="uid://w5qgbb3y5k1q" path="res://actors/battle/assets/rating_excellent.png" id="7_fc8ip"]
@@ -220,30 +219,6 @@ animations = [{
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("6")
-
-[node name="BG" type="Node2D" parent="."]
-
-[node name="SubViewport" type="SubViewport" parent="BG"]
-unique_name_in_owner = true
-size = Vector2i(300, 180)
-
-[node name="3DBG" type="Node3D" parent="BG/SubViewport"]
-
-[node name="CSGTorus3D" type="CSGTorus3D" parent="BG/SubViewport/3DBG"]
-sides = 10
-
-[node name="Camera3D" type="Camera3D" parent="BG/SubViewport/3DBG"]
-transform = Transform3D(1, 0, 0, 0, 0.966681, 0.255986, 0, -0.255986, 0.966681, 0, 1.06723, 1.87401)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BG/SubViewport/3DBG"]
-transform = Transform3D(1, 0, 0, 0, -0.535724, 0.844393, 0, -0.844393, -0.535724, 0, 4.46521, -2.39674)
-
-[node name="Sprite2D" type="Sprite2D" parent="BG"]
-z_index = -99
-z_as_relative = false
-texture_filter = 1
-position = Vector2(263, 146)
-script = ExtResource("2_b48wl")
 
 [node name="Backdrop2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

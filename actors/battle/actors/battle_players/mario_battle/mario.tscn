@@ -2527,7 +2527,6 @@ script = ExtResource("31_x1x1s")
 [node name="StateCoordinator" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("32_mdnhq")
-effect = null
 
 [node name="Idle" type="Node" parent="StateCoordinator"]
 script = ExtResource("33_mnubx")
