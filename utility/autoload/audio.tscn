@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://utility/autoload/audio.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://cav26s6ypxu47" path="res://actors/battle/actors/sfx/battle_players/jump.wav" id="2"]
-[ext_resource type="AudioStream" uid="uid://bv60mns816kwm" path="res://actors/battle/actors/sfx/battle_players/ok_attack.wav" id="3"]
-[ext_resource type="AudioStream" uid="uid://dstimhf0hknnh" path="res://actors/battle/actors/sfx/battle_players/jump_fail_attack.wav" id="4"]
-[ext_resource type="AudioStream" uid="uid://drt36f77g5sdk" path="res://actors/battle/actors/sfx/battle_players/good_attack.wav" id="5"]
-
+[ext_resource type="AudioStream" uid="uid://cav26s6ypxu47" path="res://scenes/battle/actors/sfx/battle_players/jump.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://bv60mns816kwm" path="res://scenes/battle/actors/sfx/battle_players/ok_attack.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://dstimhf0hknnh" path="res://scenes/battle/actors/sfx/battle_players/jump_fail_attack.wav" id="4"]
+[ext_resource type="AudioStream" uid="uid://drt36f77g5sdk" path="res://scenes/battle/actors/sfx/battle_players/good_attack.wav" id="5"]
 
 [node name="SoundControl" type="Control"]
 anchor_right = 1.0
