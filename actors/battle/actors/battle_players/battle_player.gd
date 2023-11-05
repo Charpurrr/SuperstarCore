@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var bp_coordinator : BattlePlayerCoordinator = get_parent()
 @onready var action_commands : Node2D = $"../../ActionCommands"
-@onready var state_coordinator : BPStateCoordinator = $States
+#@onready var state_coordinator : BPStateCoordinator = $States
 
 var action_button : String # The associated action button for this battle player.
 var fighter_key : String # Dictionary key for this battle player.

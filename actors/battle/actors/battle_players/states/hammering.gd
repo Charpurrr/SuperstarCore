@@ -24,17 +24,17 @@ func _ready():
 	current_phase = PHASES[0]
 
 
-func _process(delta):
-	if state_coordinator.active_state == "atk_hammering":
-		match current_phase:
-			PHASES[0]: # start
-				doll.play("hammer_start")
-
-			PHASES[1]: # windup
-				start_check_timer(delta)
-
-				if Input.is_action_just_pressed(actor.action_button):
-					pass
+#func _process(delta):
+#	if state_coordinator.active_state == "atk_hammering":
+#		match current_phase:
+#			PHASES[0]: # start
+#				doll.play("hammer_start")
+#
+#			PHASES[1]: # windup
+#				start_check_timer(delta)
+#
+#				if Input.is_action_just_pressed(actor.action_button):
+#					pass
 
 
 func start_check_timer(delta):
